@@ -1,0 +1,13 @@
+.announcement-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+
+    &__wrapper {
+        padding: 16px;
+        padding-top: 0;
+
+    }
+
+}

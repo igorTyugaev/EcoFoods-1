@@ -1,0 +1,59 @@
+.nav-menu {
+    width: 100%;
+    height: 90px;
+    border-top: 1px solid #d7d7d7;
+    background-color: #ffffff;
+    display: flex;
+    z-index: 9999;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-menu svg {
+    margin-top: -10px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+.nav-menu a {
+    width: 50px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.nav-menu span {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 2.8vw;
+    line-height: 150%;
+    /* identical to box height, or 15px */
+
+    text-align: center;
+
+    /* Neutral/Grey */
+
+    color: #9098B1;
+}
+
+
+.nav-menu path,
+circle {
+    stroke: #9098B1;
+    fill: #9098B1;
+}
+
+.nav-menu_active path,
+circle {
+    stroke: #1DDE7D;
+    fill: #1DDE7D;
+}
+
+.nav-menu_active span {
+    color: #1DDE7D;
+}

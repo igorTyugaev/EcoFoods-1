@@ -1,0 +1,33 @@
+.preloader {
+    display: flex;
+    flex-direction: column;
+}
+
+.preloader__wrapper {
+    position: fixed;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.preloader img {
+    margin-bottom: 20px;
+}
+
+.preloader__logo {
+    animation: ticTac 1s ease infinite alternate;
+}
+
+@keyframes ticTac {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.08);
+    }
+}

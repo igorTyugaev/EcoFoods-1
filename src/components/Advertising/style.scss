@@ -1,0 +1,57 @@
+.advertising {
+    &__carousel {
+        height: 54.9333vw;
+        margin-top: 16px;
+        margin-bottom: 16px;
+    }
+
+    &__carousel-cell {
+        position: relative;
+        padding: 0 16px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        justify-content: center;
+
+        height: 100%;
+
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: 5px;
+        }
+    }
+
+    &__overlay {
+        text-shadow: 1px 1px 2px black, 0 0 1em black;
+        border-radius: 5px;
+        position: absolute;
+        color: #FFFFFF;
+        width: calc(100% - 32px);
+        height: 100%;
+        left: 16px;
+        top: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 24px;
+        padding-left: 40px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0));
+
+        h3 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 6.4vw;
+            line-height: 150%;
+        }
+
+        p {
+            font-size: 3.2vw;
+        }
+
+        b {
+            margin-top: 4px;
+        }
+    }
+}
