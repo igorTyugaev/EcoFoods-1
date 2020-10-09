@@ -11,8 +11,9 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: true,
+            isLoad: false,
             isReg: false,
+            token: '',
         };
     }
     componentDidMount() {
@@ -20,7 +21,7 @@ export default class App extends Component {
             this.setState({
                 isLoad: true,
             });
-        }, 1000);
+        }, 500);
     }
     handleAuth = (email, password, isLogin) => {
         let url = 'http://185.68.21.29:8000/';
@@ -42,13 +43,14 @@ export default class App extends Component {
                     },
                 }
             )
-            .then(function (response) {
+            .then((response) => {
                 console.log(response.data.token);
                 this.setState({
-                    isReg: response.data.token,
+                    isReg: true,
+                    token: response.data.token,
                 });
             })
-            .catch(function (error) {
+            .catch((error) => {
                 console.log(error);
             });
     };
