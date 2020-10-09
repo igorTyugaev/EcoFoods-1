@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SearchPage from '../SearchPage';
+import PersonalAreaPage from '../PersonalAreaPage';
 import './style.css';
 
 export default class Preloader extends Component {
@@ -21,7 +22,7 @@ export default class Preloader extends Component {
                     <Route path="/ads" render={() => <span>ads</span>} />
                     <Route
                         path="/personalArea"
-                        render={() => <span>personalArea</span>}
+                        render={() => <PersonalAreaPage></PersonalAreaPage>}
                     />
                     <Route render={() => <span>Главная</span>} />
                 </Switch>

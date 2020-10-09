@@ -1,23 +1,14 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Route } from 'react-router-dom';
 import './style.css';
 
 export default class App extends Component {
-    state = {
-        active: 'home',
-    };
-    handleClick(active) {
-        this.setState({
-            active,
-        });
-    }
     render() {
-        const { active } = this.state;
+        const { active } = this.props;
         return (
             <div className="nav-menu">
                 <Link
                     to="/"
-                    onClick={() => this.handleClick('home')}
                     className={
                         active === 'home' ? 'nav-menu_active' : undefined
                     }
@@ -33,7 +24,6 @@ export default class App extends Component {
                 </Link>
                 <Link
                     to="/favorites"
-                    onClick={() => this.handleClick('favorites')}
                     className={
                         active === 'favorites' ? 'nav-menu_active' : undefined
                     }
@@ -65,7 +55,6 @@ export default class App extends Component {
                 </Link>
                 <Link
                     to="/ads"
-                    onClick={() => this.handleClick('ads')}
                     className={active === 'ads' ? 'nav-menu_active' : undefined}
                 >
                     <svg
@@ -101,7 +90,6 @@ export default class App extends Component {
                 </Link>
                 <Link
                     to="/personalArea"
-                    onClick={() => this.handleClick('personalArea')}
                     className={
                         active === 'personalArea'
                             ? 'nav-menu_active'
