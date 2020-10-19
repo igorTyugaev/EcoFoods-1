@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './style.css';
 
 export default class App extends Component {
@@ -51,7 +51,7 @@ export default class App extends Component {
 			C329.412,269.635,329.412,260.141,323.556,254.285z"
                         />
                     </svg>
-                    <span>Заказы</span>
+                    <span>Корзина</span>
                 </Link>
                 <Link
                     to="/ads"
@@ -86,7 +86,7 @@ export default class App extends Component {
 			S195.6,431.7,202.4,431.7z"
                         />
                     </svg>
-                    <span>Разместить</span>
+                    <span>Заказы</span>
                 </Link>
                 <Link
                     to="/personalArea"

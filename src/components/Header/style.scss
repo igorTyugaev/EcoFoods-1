@@ -1,0 +1,19 @@
+.header {
+    display: flex;
+    height: 60px;
+    align-items: center;
+    padding: 20px;
+    box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.039), 0px 0.5px 1.5px rgba(0, 0, 0, 0.19);
+
+    &__button {
+        background-color: #fff;
+        margin-right: 36px;
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: 500;
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
