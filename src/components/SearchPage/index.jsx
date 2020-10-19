@@ -4,14 +4,99 @@ import Advertising from '../Advertising';
 import Categories from '../Categories';
 import AdsList from '../AdsList';
 
+import img1 from './img/1.jpg';
+import img2 from './img/2.jpg';
+import img3 from './img/3.jpg';
+
+const dataSearch = {
+    announcements: [
+        {
+            id: 1,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+        {
+            id: 2,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+        {
+            id: 3,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+        {
+            id: 4,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+        {
+            id: 5,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+        {
+            id: 6,
+            img: img1,
+            place: 'Екатеринбург, Уралмаш',
+            price: '100руб/л',
+        },
+    ],
+    advertisings: [
+        {
+            img: img1,
+            title: 'Молоко кайфовое',
+            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            price: '200руб',
+            id: 1,
+        },
+        {
+            img: img2,
+            title: 'Молоко кайфовое',
+            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            price: '200руб',
+            id: 2,
+        },
+        {
+            img: img3,
+            title: 'Молоко кайфовое',
+            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            price: '200руб',
+            id: 3,
+        },
+        {
+            img: img1,
+            title: 'Молоко кайфовое',
+            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            price: '200руб',
+            id: 4,
+        },
+        {
+            img: img2,
+            title: 'Молоко кайфовое',
+            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            price: '200руб',
+            id: 5,
+        },
+    ],
+};
+
 export default class SearchPage extends Component {
     render() {
         return (
             <>
                 <Search></Search>
-                <Advertising></Advertising>
+                <Advertising
+                    url="/product"
+                    advertisings={dataSearch.advertisings}
+                ></Advertising>
                 <Categories></Categories>
-                <AdsList></AdsList>
+                <AdsList announcements={dataSearch.announcements}></AdsList>
             </>
         );
     }

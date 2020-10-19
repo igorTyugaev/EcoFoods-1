@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import SearchPage from '../SearchPage';
 import PersonalAreaPage from '../PersonalAreaPage';
-import CardPage from '../CartPage'
-import OrdersPage from '../OrdersPage'
+import CardPage from '../CartPage';
+import OrdersPage from '../OrdersPage';
+import ProductPage from '../ProductPage';
 import './style.css';
 
 export default class Preloader extends Component {
@@ -17,11 +18,19 @@ export default class Preloader extends Component {
                         render={() => <SearchPage></SearchPage>}
                     />
                     <Route
+                        exact
+                        path="/product"
+                        render={() => <ProductPage></ProductPage>}
+                    />
+                    <Route
                         path="/favorites"
                         render={() => <CardPage></CardPage>}
                     />
                     <Route path="/add" render={() => <span>add</span>} />
-                    <Route path="/ads" render={() => <OrdersPage></OrdersPage>} />
+                    <Route
+                        path="/ads"
+                        render={() => <OrdersPage></OrdersPage>}
+                    />
                     <Route
                         path="/personalArea"
                         render={() => <PersonalAreaPage></PersonalAreaPage>}

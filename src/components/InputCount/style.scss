@@ -1,0 +1,31 @@
+.input-count {
+    border: 1px solid #EBF0FF;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 132px;
+    display: flex;
+
+    &__input {
+        height: 36px;
+        width: 50px;
+        background: #1DDE7D;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 150%;
+        /* identical to box height, or 27px */
+
+        text-align: center;
+        letter-spacing: 0.005em;
+
+        color: #FFFFFF;
+    }
+
+    &__button {
+        color: #9098B1;
+        font-size: 22px;
+        width: 40px;
+        height: 36px;
+        background-color: #fff;
+    }
+}

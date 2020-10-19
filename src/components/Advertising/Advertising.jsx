@@ -1,48 +1,8 @@
 import React, { Component } from 'react';
 import Flickity from 'flickity';
-import img1 from './img/1.jpg';
-import img2 from './img/2.jpg';
-import img3 from './img/3.jpg';
 import './style.scss';
 import './flickity.min.css';
-
-const advertisings = [
-    {
-        img: img1,
-        title: 'Молоко кайфовое',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-        price: '200руб',
-        id: 1,
-    },
-    {
-        img: img2,
-        title: 'Молоко кайфовое',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-        price: '200руб',
-        id: 2,
-    },
-    {
-        img: img3,
-        title: 'Молоко кайфовое',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-        price: '200руб',
-        id: 3,
-    },
-    {
-        img: img1,
-        title: 'Молоко кайфовое',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-        price: '200руб',
-        id: 4,
-    },
-    {
-        img: img2,
-        title: 'Молоко кайфовое',
-        description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-        price: '200руб',
-        id: 5,
-    },
-];
+import { Link } from 'react-router-dom';
 
 export default class Advertising extends Component {
     componentDidMount() {
@@ -71,23 +31,51 @@ export default class Advertising extends Component {
         });
     }
     render() {
+        const { advertisings = [], url } = this.props;
         return (
             <section className="advertising__wrapper">
                 <div className="advertising">
                     <div className="advertising__carousel">
-                        {advertisings.map((item) => (
-                            <div
-                                key={item.id}
-                                className="advertising__carousel-cell"
-                            >
-                                <img src={item.img} alt="" />
-                                <div className="advertising__overlay">
-                                    <h3>{item.title}</h3>
-                                    <p>{item.description}</p>
-                                    <b>{item.price}</b>
+                        {advertisings.map((item) =>
+                            url ? (
+                                <Link
+                                    to={url}
+                                    key={item.id}
+                                    className="advertising__carousel-cell"
+                                >
+                                    <img src={item.img} alt="" />
+                                    <div
+                                        className={
+                                            item.title
+                                                ? 'advertising__overlay'
+                                                : undefined
+                                        }
+                                    >
+                                        <h3>{item.title}</h3>
+                                        <p>{item.description}</p>
+                                        <b>{item.price}</b>
+                                    </div>
+                                </Link>
+                            ) : (
+                                <div
+                                    key={item.id}
+                                    className="advertising__carousel-cell"
+                                >
+                                    <img src={item.img} alt="" />
+                                    <div
+                                        className={
+                                            item.title
+                                                ? 'advertising__overlay'
+                                                : undefined
+                                        }
+                                    >
+                                        <h3>{item.title}</h3>
+                                        <p>{item.description}</p>
+                                        <b>{item.price}</b>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            )
+                        )}
                     </div>
                 </div>
             </section>
