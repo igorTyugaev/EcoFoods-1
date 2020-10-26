@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             isLoad: false,
-            isReg: true,
+            isReg: false,
             token: '',
         };
     }
@@ -21,7 +21,7 @@ export default class App extends Component {
             this.setState({
                 isLoad: true,
             });
-        }, 500);
+        }, 1000);
     }
     handleAuth = (email, password, isLogin) => {
         let url = 'http://185.68.21.29:8000/';

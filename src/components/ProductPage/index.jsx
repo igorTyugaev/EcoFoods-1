@@ -8,7 +8,8 @@ import './style.scss';
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
 import img3 from './img/3.jpg';
-import Group from './Group.svg';
+import locationImg from './img/location.svg';
+import userImg from './img/user.svg';
 
 const data = {
     advertisings: [
@@ -62,22 +63,22 @@ export default class ProductPage extends Component {
                     and a striking visual experience.
                 </p>
                 <SettingsItem
-                    img={Group}
+                    img={locationImg}
                     title="Location"
                     text="Yekaterinburg, Mira, 19"
                 ></SettingsItem>
                 <SettingsItem
-                    img={Group}
+                    img={userImg}
+                    title="Продавец"
+                    text="@farmer_galaxy"
+                ></SettingsItem>
+                <SettingsItem
+                    img={locationImg}
                     title="Location"
                     text="Yekaterinburg, Mira, 19"
                 ></SettingsItem>
                 <SettingsItem
-                    img={Group}
-                    title="Location"
-                    text="Yekaterinburg, Mira, 19"
-                ></SettingsItem>
-                <SettingsItem
-                    img={Group}
+                    img={locationImg}
                     title="Location"
                     text="Yekaterinburg, Mira, 19"
                 ></SettingsItem>
