@@ -12,7 +12,7 @@ export default class App extends Component {
         super(props);
         this.state = {
             isLoad: false,
-            isReg: false,
+            isReg: true,
             token: '',
         };
     }
@@ -84,9 +84,9 @@ export default class App extends Component {
                                     )}
                                 />
                                 <Route
-                                    path="/ads"
+                                    path="/orders"
                                     render={() => (
-                                        <NavMenu active="ads"></NavMenu>
+                                        <NavMenu active="orders"></NavMenu>
                                     )}
                                 />
                                 <Route

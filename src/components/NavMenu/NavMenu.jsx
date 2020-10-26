@@ -54,8 +54,10 @@ export default class App extends Component {
                     <span>Корзина</span>
                 </Link>
                 <Link
-                    to="/ads"
-                    className={active === 'ads' ? 'nav-menu_active' : undefined}
+                    to="/orders"
+                    className={
+                        active === 'orders' ? 'nav-menu_active' : undefined
+                    }
                 >
                     <svg
                         viewBox="0 0 512 512"
