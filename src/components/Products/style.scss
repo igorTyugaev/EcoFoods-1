@@ -1,41 +1,17 @@
-.profile {
-    padding: 12px;
-    display: flex;
+.products {
+    &__title {
+        padding: 0 16px;
+        padding-top: 14px;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 21px */
 
-    &__wrapper {
-        padding: 16px;
-    }
+        letter-spacing: 0.5px;
 
-    &__avatar {
-        height: 19.2vw;
-        width: 19.2vw;
-        min-height: 72px;
-        min-width: 72px;
-    }
+        /* Neutral/Dark */
 
-    &__desc {
-        display: flex;
-        flex-direction: column;
-        padding-left: 16px;
-
-        b {
-            font-weight: bold;
-            font-style: normal;
-            font-size: 16px;
-            line-height: 24px;
-        }
-
-        span {
-            font-style: normal;
-            font-weight: normal;
-            font-size: 14px;
-            line-height: 20px;
-            /* identical to box height, or 143% */
-
-            letter-spacing: 0.25px;
-            color: #000000;
-            opacity: 0.6;
-            margin-bottom: 2px;
-        }
+        color: #223263;
     }
 }

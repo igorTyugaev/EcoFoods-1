@@ -1,0 +1,60 @@
+.table-block {
+    padding: 0 16px;
+
+    &__title {
+        padding: 14px 0;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 21px */
+
+        letter-spacing: 0.5px;
+
+        /* Neutral/Dark */
+
+        color: #223263;
+    }
+
+    &__list {
+        background: #FFFFFF;
+        border: 1px solid #EBF0FF;
+        box-sizing: border-box;
+        border-radius: 5px;
+        overflow: hidden;
+        padding-bottom: 14px;
+
+        &-item {
+            padding: 14px 14px 0 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+
+    &__static {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 180%;
+        /* identical to box height, or 22px */
+
+        letter-spacing: 0.5px;
+
+        color: #223263;
+
+        opacity: 0.5;
+    }
+
+    &__dynamic {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 180%;
+        /* identical to box height, or 22px */
+
+        text-align: right;
+        letter-spacing: 0.5px;
+
+        color: #223263;
+    }
+}

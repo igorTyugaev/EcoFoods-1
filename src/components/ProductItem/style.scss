@@ -1,0 +1,87 @@
+.product-item {
+    padding: 16px;
+    border-bottom: 1px solid #EBF0FF;
+    display: flex;
+
+    &__img {
+        object-fit: cover;
+        width: 19.2vw;
+        height: 19.2vw;
+        border-radius: 10px;
+        margin-right: 14px;
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    &__quantity {
+        background: #1DDE7D;
+        border: 1px solid #1DDE7D;
+        border-radius: 5px;
+        padding: 0 19px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 150%;
+        /* or 27px */
+
+        text-align: center;
+        letter-spacing: 0.005em;
+
+        color: #FFFFFF;
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__text {
+        h3 {
+            font-style: normal;
+            font-weight: bold;
+            font-size: 16px;
+            line-height: 24px;
+            /* identical to box height */
+
+            display: flex;
+            align-items: flex-end;
+            letter-spacing: -0.01em;
+
+            color: #223263;
+        }
+
+        p {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12px;
+            line-height: 150%;
+            /* identical to box height, or 15px */
+
+            letter-spacing: 0.5px;
+
+            /* Neutral/Grey */
+
+            color: #9098B1;
+        }
+
+        span {
+            font-style: normal;
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 150%;
+            /* identical to box height, or 27px */
+
+            letter-spacing: 0.5px;
+
+            color: #27214D;
+        }
+    }
+}

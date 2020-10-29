@@ -8,7 +8,7 @@ import ProductPage from '../ProductPage';
 import OrderDetails from '../OrderDetails';
 import './style.css';
 
-export default class Preloader extends Component {
+export default class Main extends Component {
     render() {
         return (
             <main className="main">
