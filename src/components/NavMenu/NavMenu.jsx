@@ -22,7 +22,7 @@ export default class App extends Component {
                     </svg>
                     <span>Поиск</span>
                 </Link>
-                <Link
+                {/* <Link
                     to="/favorites"
                     className={
                         active === 'favorites' ? 'nav-menu_active' : undefined
@@ -52,7 +52,7 @@ export default class App extends Component {
                         />
                     </svg>
                     <span>Корзина</span>
-                </Link>
+                </Link> */}
                 <Link
                     to="/orders"
                     className={

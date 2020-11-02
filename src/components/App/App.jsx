@@ -4,6 +4,7 @@ import NavMenu from '../NavMenu';
 import Main from '../Main';
 import Registration from '../Registration';
 import PreloaderMain from '../PreloaderMain';
+import RoleSelectorPage from '../RoleSelectorPage';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
 
@@ -13,9 +14,15 @@ export default class App extends Component {
         this.state = {
             isLoad: false,
             isReg: true,
+            role: false,
             token: '',
         };
     }
+    handleChangeRole = (role) => {
+        this.setState({
+            role,
+        });
+    };
     componentDidMount() {
         setTimeout(() => {
             this.setState({
@@ -56,13 +63,13 @@ export default class App extends Component {
     };
 
     render() {
-        const { isLoad, isReg } = this.state;
+        const { isLoad, isReg, role } = this.state;
         return (
             <>
                 {isLoad && (
                     <BrowserRouter>
-                        {isReg && <Main></Main>}
-                        {isReg && (
+                        {role && isReg && <Main></Main>}
+                        {role && isReg && (
                             <Switch>
                                 <Route
                                     exact
@@ -101,6 +108,11 @@ export default class App extends Component {
                                     )}
                                 />
                             </Switch>
+                        )}
+                        {isReg && !role && (
+                            <RoleSelectorPage
+                                handleChangeRole={this.handleChangeRole}
+                            ></RoleSelectorPage>
                         )}
                         {!isReg && (
                             <Registration

@@ -3,6 +3,7 @@ import Advertising from '../Advertising';
 import Header from '../Header';
 import InputCount from '../InputCount/';
 import SettingsItem from '../SettingsItem';
+import BuyBlock from '../BuyBlock';
 import './style.scss';
 
 import img1 from './img/1.jpg';
@@ -34,13 +35,28 @@ const data = {
             id: 5,
         },
     ],
+    cost: 20,
+    unit: 'per Lit',
 };
 
 export default class ProductPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: data.cost,
+        };
+    }
     handleBack = () => {
         window.history.back();
     };
+    handleChangeCount = (count) => {
+        const value = count * data.cost;
+        this.setState({
+            value,
+        });
+    };
     render() {
+        const { value } = this.state;
         return (
             <>
                 <Header
@@ -51,10 +67,12 @@ export default class ProductPage extends Component {
                 <h1 className="product__title">Melon fruit salad</h1>
                 <div className="product__cost-row">
                     <div className="product__cost">
-                        <b>$20,32 </b>
-                        <span>per Lit</span>
+                        <b>${data.cost}</b>
+                        <span> {data.unit}</span>
                     </div>
-                    <InputCount></InputCount>
+                    <InputCount
+                        handleChangeCount={this.handleChangeCount}
+                    ></InputCount>
                 </div>
                 <h3 className="product__des-title">Description</h3>
                 <p className="product__des-main">
@@ -82,6 +100,7 @@ export default class ProductPage extends Component {
                     title="Location"
                     text="Yekaterinburg, Mira, 19"
                 ></SettingsItem>
+                <BuyBlock total={'$' + value}></BuyBlock>
             </>
         );
     }

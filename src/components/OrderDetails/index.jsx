@@ -3,6 +3,7 @@ import Header from '../Header';
 import Products from '../Products';
 import TableBlock from '../TableBlock';
 import img from './1.jpg';
+import BuyBlock from '../BuyBlock';
 
 const products = [
     {

@@ -1,0 +1,104 @@
+.role-selector {
+    display: flex;
+    flex-direction: column;
+    padding: 60px 20px;
+
+    &__selector-block {
+        display: flex;
+        margin: 30px 0;
+    }
+
+    &__selector-item {
+        padding: 15px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 150%;
+        /* identical to box height, or 27px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Neutral/Dark */
+
+        color: #223263;
+
+        background: #FFFFFF;
+        border: 1px solid #EBF0FF;
+        box-sizing: border-box;
+        border-radius: 5px;
+
+        margin: 0 10px;
+    }
+
+    &__selector-item_active {
+        border: 1px solid #1DDE7D;
+    }
+
+    h2 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 150%;
+        /* identical to box height, or 27px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Neutral/Dark */
+
+        color: #223263;
+        margin-bottom: 35px;
+    }
+
+    p {
+        text-align: center;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 180%;
+        /* or 25px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Neutral/Grey */
+
+        color: #9098B1;
+    }
+
+    button {
+        background: rgba(29, 222, 125, 0.5);
+        /* Button Shadow */
+        height: 60px;
+
+        box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+        border-radius: 5px;
+
+        font-style: normal;
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 180%;
+        /* or 25px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Background/White */
+
+        color: #FFFFFF;
+
+        /* Inside Auto Layout */
+        transition: 0.3s;
+    }
+
+    button.active {
+        background: #1DDE7D;
+    }
+}
