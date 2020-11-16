@@ -14,7 +14,7 @@ export default class App extends Component {
         this.state = {
             isLoad: false,
             isReg: true,
-            role: false,
+            role: 'seller',
             token: '',
         };
     }
@@ -68,43 +68,70 @@ export default class App extends Component {
             <>
                 {isLoad && (
                     <BrowserRouter>
-                        {role && isReg && <Main></Main>}
+                        {role && isReg && <Main role={role}></Main>}
                         {role && isReg && (
                             <Switch>
                                 <Route
                                     exact
                                     path="/"
                                     render={() => (
-                                        <NavMenu active="home"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="home"
+                                        ></NavMenu>
                                     )}
                                 />
                                 <Route
                                     path="/favorites"
                                     render={() => (
-                                        <NavMenu active="favorites"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="favorites"
+                                        ></NavMenu>
                                     )}
                                 />
                                 <Route
                                     path="/add"
                                     render={() => (
-                                        <NavMenu active="add"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="add"
+                                        ></NavMenu>
                                     )}
                                 />
                                 <Route
                                     path="/orders"
                                     render={() => (
-                                        <NavMenu active="orders"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="orders"
+                                        ></NavMenu>
                                     )}
                                 />
                                 <Route
                                     path="/personalArea"
                                     render={() => (
-                                        <NavMenu active="personalArea"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="personalArea"
+                                        ></NavMenu>
+                                    )}
+                                />
+                                <Route
+                                    path="/my-products"
+                                    render={() => (
+                                        <NavMenu
+                                            role={role}
+                                            active="my-products"
+                                        ></NavMenu>
                                     )}
                                 />
                                 <Route
                                     render={() => (
-                                        <NavMenu active="home"></NavMenu>
+                                        <NavMenu
+                                            role={role}
+                                            active="home"
+                                        ></NavMenu>
                                     )}
                                 />
                             </Switch>

@@ -1,0 +1,58 @@
+.sales-location-chart {
+  margin: 20px;
+  padding: 10px 20px;
+  // padding-top: 10px;
+  // margin-top: 20px;
+  /* stroke */
+
+  border: 1px solid #EBEBEB;
+  box-sizing: border-box;
+  border-radius: 13px;
+
+  &__title {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+
+
+    color: #223263;
+  }
+
+  &__stat-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+}
+
+.stat-item {
+  margin-top: 20px;
+  width: 45%;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+
+  color: #9098B1;
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__chart {
+    width: 100%;
+    background: #EFF3F9;
+    border-radius: 9px;
+    height: 10px;
+    overflow: hidden;
+    margin-top: 9px;
+
+    &-inner {
+      height: 100%;
+      background: #1DDE7D;
+      // width: 100%;
+    }
+  }
+}
