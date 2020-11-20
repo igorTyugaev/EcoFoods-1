@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SettingsItem from '../SettingsItem';
 import './style.scss';
+import token from '../../utils/token';
 
 import locationImg from './location.svg';
 import doorImg from './door.svg';
@@ -59,6 +60,7 @@ export default class SettingsList extends Component {
                     img={doorImg}
                     title="Log out"
                     text="Всего хорошего"
+                    handler={() => token.remove()}
                 ></SettingsItem>
             </ul>
         );

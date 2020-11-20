@@ -2,13 +2,42 @@ import React, { Component } from 'react';
 import Header from '../Header';
 import './style.scss';
 import img from './1.jpg';
+import axios from 'axios';
+import URL from '../../utils/url'
+import MakeConfig from '../../utils/AxiosConfig';
+import token from '../../utils/token'
 
 const imgs = [img, img, img, img, img, img];
 
 export default class MyProductsAddPage extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            name:'',
+            category:'',
+            description:'',
+            price:'',
+            units:'',
+        }
+    }
     handleBack = () => {
         window.history.back();
     };
+
+    handleAdd = () => {
+        const url = URL + 'api/merchant/add_product/'
+        axios.post(url, {
+            name:this.state.name,
+            price:this.state.price,
+            description:this.state.description,
+            img:'',
+            units:this.state.units,
+        }, MakeConfig(token.get()))
+        .then(resp=>this.handleBack())
+        .catch(err=>console.log(err));
+    };
+
     render() {
         return (
             <>
@@ -22,11 +51,16 @@ export default class MyProductsAddPage extends Component {
                         placeholder="Коктейль кисломолочный"
                         type="text"
                         className="my-products-add-page__input"
+                        value={this.state.name}
+                        onChange={(ev) => this.setState({name: ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">Категория</h2>
-                    <select className="my-products-add-page__input">
-                        <option>Пункт 1</option>
-                        <option>Пункт 2</option>
+                    <select
+                        className="my-products-add-page__input"
+                        value={this.state.category}
+                        onChange={(ev) => this.setState({category:ev.target.value})}>
+                        <option>Мясо</option>
+                        <option>Овощи</option>
                     </select>
                     <h2 className="my-products-add-page__title">Описание</h2>
                     <textarea
@@ -34,6 +68,8 @@ export default class MyProductsAddPage extends Component {
                         placeholder="Можно пару красивых слов?"
                         type="text"
                         className="my-products-add-page__input"
+                        value={this.state.description}
+                        onChange={(ev) => this.setState({description:ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">
                         Добавить фото
@@ -52,13 +88,19 @@ export default class MyProductsAddPage extends Component {
                             placeholder="$1.245"
                             type="text"
                             className="my-products-add-page__input"
+                            value={this.state.price}
+                            onChange={(ev) => this.setState({price:ev.target.value})}
                         />
-                        <select className="my-products-add-page__input">
+                        <select 
+                            className="my-products-add-page__input"
+                            value={this.state.units}
+                            onChange={(ev) => this.setState({units:ev.target.value})}
+                        >
                             <option>руб / лит.</option>
                             <option>руб / кг.</option>
                         </select>
                     </div>
-                    <button className="my-products-add-page__add-button">
+                    <button className="my-products-add-page__add-button" onClick={this.handleAdd}>
                         Добавить товар
                     </button>
                 </div>

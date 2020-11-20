@@ -7,6 +7,10 @@ import AdsList from '../AdsList';
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
 import img3 from './img/3.jpg';
+import axios from 'axios';
+import URL from '../../utils/url';
+import token from '../../utils/token';
+import MakeConfig from '../../utils/AxiosConfig';
 
 const dataSearch = {
     announcements: [
@@ -87,16 +91,33 @@ const dataSearch = {
 };
 
 export default class SearchPage extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            advertisings: [],
+            announcements: [], 
+        };
+    }
+
+    componentDidMount() {
+        const url = URL + 'api/home';
+        const settings = MakeConfig(token.get());
+        axios.get(url, settings)
+            .then(resp => this.setState({announcements: resp.data.announcements.map(s => ({...s, id:s.uuid})), advertisings:resp.data.advertisings.map(adv => ({...adv, id:adv.uuid}))}))
+            .catch(err => console.error(err));
+    }
+
     render() {
+        const {advertisings, announcements} = this.state;
         return (
             <>
                 <Search></Search>
                 <Advertising
                     url="/product"
-                    advertisings={dataSearch.advertisings}
+                    advertisings={advertisings}
                 ></Advertising>
                 <Categories></Categories>
-                <AdsList announcements={dataSearch.announcements}></AdsList>
+                <AdsList announcements={announcements}></AdsList>
             </>
         );
     }

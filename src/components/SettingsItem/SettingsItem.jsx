@@ -3,11 +3,11 @@ import './style.scss';
 import arrow from './Arrow.svg'
 
 
-export default class SettingsList extends Component {
+export default class SettingsItem extends Component {
     render() {
-        const {img,title,text} = this.props
+        const {img,title,text,handler} = this.props
         return (
-            <li className="settings-item">
+            <li className="settings-item" onClick={handler}>
                 <div className="settings-item__block">
                     <img src={img} alt="" className="settings-item__img" />
                     <h3>{title}</h3>

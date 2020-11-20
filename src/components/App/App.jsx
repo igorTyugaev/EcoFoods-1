@@ -7,35 +7,61 @@ import PreloaderMain from '../PreloaderMain';
 import RoleSelectorPage from '../RoleSelectorPage';
 import { Route, Switch } from 'react-router-dom';
 import axios from 'axios';
+import URL from '../../utils/url';
+import token from '../../utils/token';
 
 export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
             isLoad: false,
-            isReg: true,
-            role: 'seller',
+            isReg: false,
+            role: '',
             token: '',
         };
     }
     handleChangeRole = (role) => {
+        this.setState({isLoad:false});
+        const url = URL + 'api/update/'
+        axios.patch(url, {
+            is_merchant: role === 'seller',
+        }, {
+            headers: {
+                Authorization: 'EcoFoods ' + this.state.token,
+            },
+        }).then(resp => this.setState({isLoad: true, role: resp.data.is_merchant ? 'seller' : 'buyer'})).catch(err => console.error(err));
         this.setState({
-            role,
+            role:role,
+            isLoad:true,
         });
     };
     componentDidMount() {
         setTimeout(() => {
-            this.setState({
-                isLoad: true,
-            });
+            const currentToken = token.get();
+            let state = {isLoad:true};
+            if (currentToken) {
+                const url = URL + 'api/update/';
+                state['token'] = currentToken;
+                state['isReg'] = true;
+                axios
+                    .patch(url, {}, {
+                    headers: {
+                        Authorization: 'EcoFoods ' + currentToken,
+                    },})
+                    .then(resp => state['role'] = resp.data.is_merchant ? 'seller' : 'buyer')
+                    .catch(err => console.error(err))
+                    .finally(() => this.setState(state));
+            } else {
+                this.setState(state);
+            }
         }, 1000);
     }
     handleAuth = (email, password, isLogin) => {
-        let url = 'http://185.68.21.29:8000/';
+        let url = URL;
         if (isLogin) {
-            url += 'login/';
+            url += 'api/login/';
         } else {
-            url += 'registration/';
+            url += 'api/registration/';
         }
         axios
             .post(
@@ -56,6 +82,7 @@ export default class App extends Component {
                     isReg: true,
                     token: response.data.token,
                 });
+                token.set(response.data.token);
             })
             .catch((error) => {
                 console.log(error);
