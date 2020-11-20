@@ -28,10 +28,19 @@ export default class Main extends Component {
                             render={() => <ProductPage></ProductPage>}
                         />
                         <Route
+                            path="/product/:productId"
+                            component={ProductPage}
+                        />
+                        <Route
+                            exact
                             path="/orders/item"
                             render={() => <OrderDetails></OrderDetails>}
                         />
                         <Route
+                            path="/orders/item/:orderId"
+                            component={OrderDetails}
+                        />
+                        <Route                           
                             path="/orders"
                             render={() => <OrdersPage></OrdersPage>}
                         />

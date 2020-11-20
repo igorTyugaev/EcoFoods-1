@@ -39,7 +39,7 @@ export default class Advertising extends Component {
                         {advertisings.map((item) =>
                             url ? (
                                 <Link
-                                    to={url}
+                                    to={`${url}/${item.id}`}
                                     key={item.id}
                                     className="advertising__carousel-cell"
                                 >

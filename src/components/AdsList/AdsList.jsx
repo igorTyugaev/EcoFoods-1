@@ -14,9 +14,11 @@ export default class AdsList extends Component {
                     {announcements.map((item) => (
                         <AdsBlock
                             key={item.id}
+                            productId={item.uuid}
                             img={item.img}
                             place={item.place}
                             price={item.price}
+                            name={item.name}
                         ></AdsBlock>
                     ))}
                 </ul>
