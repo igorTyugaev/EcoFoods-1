@@ -52,7 +52,7 @@ export default class MyProductsAddPage extends Component {
                         type="text"
                         className="my-products-add-page__input"
                         value={this.state.name}
-                        onChange={(ev) => this.setState({name: ev.target.value})}
+                        onChange={(ev) =>this.setState({name: ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">Категория</h2>
                     <select
@@ -69,7 +69,7 @@ export default class MyProductsAddPage extends Component {
                         type="text"
                         className="my-products-add-page__input"
                         value={this.state.description}
-                        onChange={(ev) => this.setState({description:ev.target.value})}
+                        onChange={(ev) =>this.setState({description: ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">
                         Добавить фото

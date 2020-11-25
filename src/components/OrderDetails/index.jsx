@@ -4,6 +4,11 @@ import Products from '../Products';
 import TableBlock from '../TableBlock';
 import img from './1.jpg';
 import BuyBlock from '../BuyBlock';
+import axios from 'axios';
+import URL from '../../utils/url';
+import token from '../../utils/token';
+import MakeConfig from '../../utils/AxiosConfig';
+import Preloader from '../PreloaderMain';
 
 const products = [
     {
@@ -25,24 +30,44 @@ const products = [
 ];
 
 export default class OrderDetails extends Component {
+    constructor(props) {
+        super(props);
+        const match = props.match;
+        this.state = {
+            loaded: false,
+            orderId: match.params.orderId || '0',
+            order: {},
+        }
+    }
+
+    componentDidMount() {
+        const url = URL+ 'api/get_orders/';
+        const config = MakeConfig(token.get());
+        axios.get(url, config)
+            .then(resp => {console.log(this.state.orderId);this.setState({loaded: true, order: resp.data.filter(a => a.uuid === this.state.orderId)[0]})})
+            .catch(err => console.error(err));
+    }
+
     handleBack = () => {
         window.history.back();
     };
+
     render() {
-        return (
+        const {loaded, order} = this.state;
+        return loaded ? (
             <>
-                <Header button={this.handleBack} title="Order Details"></Header>
-                <Products products={products}></Products>
+                <Header button={this.handleBack} title="Детали заказа"></Header>
+                <Products products={order.products}></Products>
                 <TableBlock
-                    staticItems={['Date Shipping', 'Seller', 'Address']}
+                    staticItems={['Дата доставки', 'Продавец', 'Адрес']}
                     dynamicItems={[
-                        '08 October, 2020',
-                        'Dmitry Schapin',
-                        'Yekaterinburg, Mira, 19',
+                        (order.date || 'Неизвестно'),
+                        (order.products[0].product.merchant.first_name || 'Продавец') + ' ' + (order.products[0].product.merchant.last_name || 'Травы'),
+                        (order.products[0].product.merchant.address || 'Уточняется у продавца'),
                     ]}
-                    title="Shipping Details"
+                    title="Детали доставки"
                 ></TableBlock>
             </>
-        );
+        ) : <Preloader></Preloader>;
     }
 }

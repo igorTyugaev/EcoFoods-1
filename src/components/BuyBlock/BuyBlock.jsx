@@ -5,22 +5,16 @@ import './style.scss';
 export default class BuyBlock extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            isDone: false,
-        };
     }
     handleBuy = () => {
-        //axios
-        this.setState({
-            isDone: true,
-        });
+        const {handleBuy} = this.props;
+        handleBuy();
     };
     render() {
-        const { total } = this.props;
-        const { isDone } = this.state;
+        const { total, isBought } = this.props;
         return (
             <div className="buy-block">
-                {!isDone ? (
+                {!isBought ? (
                     <>
                         <div className="">
                             <b className="">Итого:</b>

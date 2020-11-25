@@ -25,6 +25,9 @@ export default class App extends Component {
         const url = URL + 'api/update/'
         axios.patch(url, {
             is_merchant: role === 'seller',
+            first_name: 'Dmitry',
+            last_name: 'Shchapin',
+            address: 'Улица Пушкина, дом Колотушкина',
         }, {
             headers: {
                 Authorization: 'EcoFoods ' + this.state.token,

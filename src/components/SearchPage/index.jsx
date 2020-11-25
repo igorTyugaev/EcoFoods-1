@@ -103,7 +103,7 @@ export default class SearchPage extends Component {
         const url = URL + 'api/home';
         const settings = MakeConfig(token.get());
         axios.get(url, settings)
-            .then(resp => this.setState({announcements: resp.data.announcements.map(s => ({...s, id:s.uuid})), advertisings:resp.data.advertisings.map(adv => ({...adv, id:adv.uuid}))}))
+            .then(resp => {console.log(resp); this.setState({announcements: resp.data.announcements.map(s => ({...s, id:s.uuid})), advertisings:resp.data.advertisings.map(adv => ({...adv, id:adv.uuid}))})})
             .catch(err => console.error(err));
     }
 
@@ -114,7 +114,7 @@ export default class SearchPage extends Component {
                 <Search></Search>
                 <Advertising
                     url="/product"
-                    advertisings={advertisings}
+                    advertisings={dataSearch.advertisings}
                 ></Advertising>
                 <Categories></Categories>
                 <AdsList announcements={announcements}></AdsList>

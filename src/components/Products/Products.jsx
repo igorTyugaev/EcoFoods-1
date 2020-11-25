@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ProductItem from '../ProductItem';
 import './style.scss';
+import img from '../ProductPage/img/1.jpg'
 
 export default class Products extends Component {
     render() {
@@ -11,12 +12,12 @@ export default class Products extends Component {
                 <ul className="products__list">
                     {products.map((item) => (
                         <ProductItem
-                            key={item.id}
+                            key={item.product.uuid}
                             quantity={item.quantity}
-                            price={item.price}
-                            img={item.img}
-                            location={item.location}
-                            title={item.title}
+                            price={item.product.price}
+                            img={item.img || img}
+                            location={item.product.merchant.address}
+                            title={item.product.name}
                         ></ProductItem>
                     ))}
                 </ul>

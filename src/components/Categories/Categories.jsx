@@ -8,49 +8,49 @@ export default class Categories extends Component {
     render() {
         return (
             <section className="categories__wrapper">
-                <Title h2="Category" aText="More Category"></Title>
+                <Title h2="Категории" aText="Больше категорий"></Title>
                 <ul className="categories">
                     <li className="categories__item categories__item_active">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Молоко</span>
                     </li>
                     <li className="categories__item ">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Чай</span>
                     </li>
                     <li className="categories__item ">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Кофе</span>
                     </li>
                     <li className="categories__item">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Мясо</span>
                     </li>
                     <li className="categories__item">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Крупа</span>
                     </li>
                     <li className="categories__item">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Трава(газон)</span>
                     </li>
                     <li className="categories__item">
                         <a href="/">
                             <img src={milk} alt="" className="" />
                         </a>
-                        <span>Milk</span>
+                        <span>Удобрение</span>
                     </li>
                 </ul>
             </section>
