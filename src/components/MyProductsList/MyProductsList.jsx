@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import MyProductItem from '../MyProductItem';
 import './style.scss';
 import img from './img/1.jpg';
+import URL from '../../utils/url';
+import token from '../../utils/token';
+import axios from 'axios';
+import MakeConfig from '../../utils/AxiosConfig';
+
 
 const myProducts = [
     {
@@ -21,15 +26,30 @@ const myProducts = [
 ];
 
 export default class MyProductsList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            myProducts: [],
+        };
+    }
+
+    componentDidMount() {
+        const url = URL + 'api/merchant/get_products';
+        axios.get(url, MakeConfig(token.get()))
+            .then(resp => this.setState({myProducts: resp.data}))
+            .catch(err => console.log(err));
+    }
+
     render() {
+        const {myProducts} = this.state;
         return (
             <ul className="settings__list">
                 {myProducts.map((item) => (
                     <MyProductItem
-                        key={item.id}
-                        img={item.img}
-                        title={item.title}
-                        text={item.text}
+                        key={item.uuid}
+                        img={item.images[0].image.url || img}
+                        title={item.name}
+                        text={item.description}
                         price={item.price}
                     ></MyProductItem>
                 ))}

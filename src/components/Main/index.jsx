@@ -8,6 +8,10 @@ import ProductPage from '../ProductPage';
 import OrderDetails from '../OrderDetails';
 import SalesPage from '../SalesPage';
 import MyProductsAddPage from '../MyProductsAddPage';
+import CartPage from '../CartPage';
+import DeliveryPage from '../DeliveryPage';
+import PaymentPage from '../PaymentPage';
+import SettingsPage from '../SettingsPage';
 import './style.css';
 
 export default class Main extends Component {
@@ -28,14 +32,40 @@ export default class Main extends Component {
                             render={() => <ProductPage></ProductPage>}
                         />
                         <Route
+                            path="/product/:productId"
+                            component={ProductPage}
+                        />
+                        <Route
+                            exact
                             path="/orders/item"
                             render={() => <OrderDetails></OrderDetails>}
+                        />
+                        <Route
+                            path="/orders/item/:orderId"
+                            component={OrderDetails}
+                        />
+                        <Route
+                            path="/cart/delivery"
+                            render={() => <DeliveryPage></DeliveryPage>}
+                        />
+                        <Route
+                            path="/cart/payment"
+                            render={() => <PaymentPage></PaymentPage>}
+                        />
+                        <Route
+                            path="/cart"
+                            render={() => <CartPage></CartPage>}
                         />
                         <Route
                             path="/orders"
                             render={() => <OrdersPage></OrdersPage>}
                         />
-
+                        <Route
+                            path="/personalArea/settings"
+                            render={() => (
+                                <SettingsPage type="location"></SettingsPage>
+                            )}
+                        />
                         <Route
                             path="/personalArea"
                             render={() => <PersonalAreaPage></PersonalAreaPage>}
@@ -73,6 +103,12 @@ export default class Main extends Component {
                         <Route
                             path="/orders"
                             render={() => <OrdersPage></OrdersPage>}
+                        />
+                        <Route
+                            path="/personalArea/settings/location"
+                            render={() => (
+                                <SettingsPage type="location"></SettingsPage>
+                            )}
                         />
 
                         <Route

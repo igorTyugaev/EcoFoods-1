@@ -1,0 +1,68 @@
+.payment {
+  h2 {
+    padding: 0 16px;
+  }
+
+  &__list {
+    margin: 9px 0;
+  }
+
+  &__item-icon {
+    margin-right: 20px;
+  }
+
+  &__item {
+    label {
+      display: flex;
+      align-items: center;
+    }
+
+    padding: 16px 20px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 150%;
+    /* identical to box height, or 18px */
+
+    letter-spacing: 0.5px;
+
+    /* Neutral/Dark */
+
+    color: #223263;
+
+    &_active {
+      background: rgba(29, 222, 125, 0.08);
+    }
+
+
+    input {
+      display: none;
+    }
+  }
+
+  &__button {
+    margin: 0 16px;
+
+    background: #1DDE7D;
+    /* Button Shadow */
+
+    box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+    border-radius: 10px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 180%;
+    /* or 25px */
+
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    /* Background/White */
+
+    color: #FFFFFF;
+    padding: 16px;
+    width: calc(100% - 32px);
+  }
+}

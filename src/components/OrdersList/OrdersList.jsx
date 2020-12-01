@@ -1,6 +1,13 @@
+import axios from 'axios';
 import React, { Component } from 'react';
 import OrdersItem from '../OrdersItem'
 import './style.scss';
+import MakeConfig from '../../utils/AxiosConfig';
+import URL from '../../utils/url';
+import token from '../../utils/token';
+import Preloader from '../PreloaderMain'
+
+
 
 const orders = [
     {
@@ -36,11 +43,29 @@ const orders = [
 ]
 
 export default class OrdersList extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            orders: [],
+            loaded: false,
+        }
+    }
+
+    componentDidMount() {
+        const url = URL+ 'api/get_orders/';
+        const config = MakeConfig(token.get());
+        axios.get(url, config)
+            .then(resp => {console.log(resp.data);this.setState({loaded: true, orders: resp.data})})
+            .catch(err => console.error(err));
+    }
+
+
     render() {
-        return (
+        const {orders, loaded} = this.state;
+        return loaded ? (
             <ul className="orders__list">
-                {orders.map((item) => <OrdersItem key={item.id} price={item.price} items={item.items} location={item.location} deliveryDate={item.deliveryDate} status={item.status} orderAt={item.orderAt} date={item.date}id={item.id}></OrdersItem>)}
+                {orders.map((item) => <OrdersItem key={item.uuid} price={parseInt(item.products[0].product.price)*parseInt(item.products[0].quantity)} items={`${item.products[0].quantity} шт.`} location={item.products[0].product.merchant.address || 'Уточняется у продавца'} deliveryDate={item.deliveryDate || 'Неизвестно'} status={item.status === 'opened' ? 'открыт': 'завершён'} orderAt={(item.products[0].product.merchant.first_name || 'Продавец') + ' ' + (item.products[0].product.merchant.last_name || 'Травы')} date={item.date}id={item.uuid}></OrdersItem>)}
             </ul>
-        );
+        ) : <Preloader></Preloader>;
     }
 }

@@ -1,0 +1,41 @@
+.progress-bar {
+  &__wrapper {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
+
+  &__line {
+    height: 2px;
+    width: calc(100% - 40px);
+    position: absolute;
+    left: 20px;
+    top: 21px;
+    background-color: #1DDE7D;
+  }
+
+  &__item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+
+    span {
+      margin-top: 10px;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 12px;
+      line-height: 180%;
+      /* identical to box height, or 22px */
+
+      text-align: center;
+      letter-spacing: 0.5px;
+
+      /* Neutral/Grey */
+
+      color: #9098B1;
+    }
+  }
+}

@@ -3,24 +3,16 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default class BuyBlock extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            isDone: false,
-        };
-    }
     handleBuy = () => {
-        //axios
-        this.setState({
-            isDone: true,
-        });
+        const { handleBuy } = this.props;
+        handleBuy();
     };
+
     render() {
-        const { total } = this.props;
-        const { isDone } = this.state;
+        const { total, isBought } = this.props;
         return (
             <div className="buy-block">
-                {!isDone ? (
+                {!isBought ? (
                     <>
                         <div className="">
                             <b className="">Итого:</b>
@@ -34,9 +26,9 @@ export default class BuyBlock extends Component {
                         </button>
                     </>
                 ) : (
-                    <Link className="buy-block__button_active" to="/orders">
+                    <Link className="buy-block__button_active" to="/cart">
                         <button className="buy-block__button buy-block__button_active">
-                            Перейти в заказам
+                            Перейти в корзину
                         </button>
                     </Link>
                 )}

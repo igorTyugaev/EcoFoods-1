@@ -6,7 +6,7 @@ export default class RoleSelectorPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            role: false,
+            role: '',
         };
     }
     handleClick = (role) => {

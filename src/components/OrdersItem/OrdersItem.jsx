@@ -16,7 +16,7 @@ export default class OrdersItem extends Component {
         } = this.props;
         return (
             <li className="orders-item">
-                <Link to="/orders/item">
+                <Link to={`/orders/item/${id}`}>
                     <div className="orders-item__header">
                         <div className="orders-item__row">
                             <h3 className="orders-item__id">{id}</h3>

@@ -12,7 +12,13 @@ import img3 from './img/3.jpg';
 import locationImg from './img/location.svg';
 import userImg from './img/user.svg';
 
-const data = {
+import URL from '../../utils/url';
+import token from '../../utils/token';
+import MakeConfig from '../../utils/AxiosConfig';
+import axios from 'axios';
+import Preloader from '../PreloaderMain';
+
+const defaultData = {
     advertisings: [
         {
             img: img1,
@@ -42,66 +48,115 @@ const data = {
 export default class ProductPage extends Component {
     constructor(props) {
         super(props);
+        const match = props.match;
         this.state = {
-            value: data.cost,
+            value: '0.00',
+            productId: match ? match.params.productId : 0,
+            data: {},
+            loaded: false,
+            isBought: false,
         };
     }
+    componentDidMount() {
+        const url = URL + 'api/home';
+        const settings = MakeConfig(token.get());
+        axios
+            .get(url, settings)
+            .then((resp) => {
+                const data = resp.data;
+                console.log(data);
+                const advertisings = data.advertisings.filter(
+                    (e) => e.uuid === this.state.productId
+                );
+                const announcements = data.announcements.filter(
+                    (e) => e.uuid === this.state.productId
+                );
+                if (advertisings.length > 0) {
+                    this.setState({
+                        loaded: true,
+                        value: advertisings[0].price,
+                        data: advertisings[0],
+                    });
+                } else if (announcements.length > 0) {
+                    this.setState({
+                        loaded: true,
+                        value: announcements[0].price,
+                        data: announcements[0],
+                    });
+                }
+            })
+            .catch((err) => console.error(err));
+    }
+
     handleBack = () => {
         window.history.back();
     };
+
+    handleBuy = () => {
+        const url = URL + 'api/create_order/';
+        const settings = MakeConfig(token.get());
+        axios
+            .post(
+                url,
+                {
+                    product_uuid: this.state.productId,
+                    quantity:
+                        parseInt(this.state.value) /
+                        parseInt(this.state.data.price),
+                },
+                settings
+            )
+            .then((resp) => this.setState({ isBought: true }))
+            .catch((err) => console.error(err));
+    };
+
     handleChangeCount = (count) => {
-        const value = count * data.cost;
+        const value = count * this.state.data.price;
         this.setState({
-            value,
+            value: value.toFixed(2),
         });
     };
     render() {
-        const { value } = this.state;
-        return (
+        const { value, data, loaded } = this.state;
+        return loaded ? (
             <>
                 <Header
                     button={this.handleBack}
                     title="Product details"
                 ></Header>
-                <Advertising advertisings={data.advertisings}></Advertising>
-                <h1 className="product__title">Melon fruit salad</h1>
+                <Advertising
+                    advertisings={defaultData.advertisings}
+                ></Advertising>
+                <h1 className="product__title">{data.name}</h1>
                 <div className="product__cost-row">
                     <div className="product__cost">
-                        <b>${data.cost}</b>
-                        <span> {data.unit}</span>
+                        <b>{data.price}</b>
+                        <span> {data.units}</span>
                     </div>
                     <InputCount
                         handleChangeCount={this.handleChangeCount}
                     ></InputCount>
                 </div>
                 <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">
-                    The Nike Air Max 270 React ENG combines a full-length React
-                    foam midsole with a 270 Max Air unit for unrivaled comfort
-                    and a striking visual experience.
-                </p>
+                <p className="product__des-main">{data.description}</p>
                 <SettingsItem
                     img={locationImg}
                     title="Location"
-                    text="Yekaterinburg, Mira, 19"
+                    text={data.merchant ? data.merchant.address : ' '}
                 ></SettingsItem>
                 <SettingsItem
                     img={userImg}
                     title="Продавец"
                     text="@farmer_galaxy"
                 ></SettingsItem>
-                <SettingsItem
-                    img={locationImg}
-                    title="Location"
-                    text="Yekaterinburg, Mira, 19"
-                ></SettingsItem>
-                <SettingsItem
-                    img={locationImg}
-                    title="Location"
-                    text="Yekaterinburg, Mira, 19"
-                ></SettingsItem>
-                <BuyBlock total={'$' + value}></BuyBlock>
+                <BuyBlock
+                    isBought={this.state.isBought}
+                    total={value}
+                    handleBuy={this.handleBuy}
+                ></BuyBlock>
             </>
+        ) : (
+            <Preloader></Preloader>
         );
     }
 }
