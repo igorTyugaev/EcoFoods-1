@@ -1,0 +1,43 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px;
+
+  &__desc {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 180%;
+    /* identical to box height, or 22px */
+
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    /* Neutral/Grey */
+
+    color: #9098B1;
+  }
+
+  &__button {
+    background: #1DDE7D;
+    /* Button Shadow */
+
+    box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+    border-radius: 5px;
+    padding: 16px;
+    width: 100%;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 180%;
+    /* or 25px */
+
+    text-align: center;
+    letter-spacing: 0.5px;
+
+    /* Background/White */
+
+    color: #FFFFFF;
+  }
+}
