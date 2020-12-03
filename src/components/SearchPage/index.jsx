@@ -3,6 +3,7 @@ import Search from '../Search';
 import Advertising from '../Advertising';
 import Categories from '../Categories';
 import AdsList from '../AdsList';
+import NotFound from '../NotFound';
 
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
@@ -95,29 +96,79 @@ export default class SearchPage extends Component {
         super(props);
         this.state = {
             advertisings: [],
-            announcements: [], 
+            announcements: [],
+            searchValue: '',
         };
     }
 
     componentDidMount() {
         const url = URL + 'api/home';
         const settings = MakeConfig(token.get());
-        axios.get(url, settings)
-            .then(resp => {console.log(resp); this.setState({announcements: resp.data.announcements.map(s => ({...s, id:s.uuid})), advertisings:resp.data.advertisings.map(adv => ({...adv, id:adv.uuid}))})})
-            .catch(err => console.error(err));
+        axios
+            .get(url, settings)
+            .then((resp) => {
+                console.log(resp);
+                this.setState({
+                    announcements: resp.data.announcements.map((s) => ({
+                        ...s,
+                        id: s.uuid,
+                    })),
+                    advertisings: resp.data.advertisings.map((adv) => ({
+                        ...adv,
+                        id: adv.uuid,
+                    })),
+                });
+            })
+            .catch((err) => console.error(err));
     }
-
+    handleSearchChange = (e) => {
+        this.setState({
+            searchValue: e.target.value,
+        });
+    };
+    handleSearchSend = (e) => {
+        e.preventDefault();
+        console.log('handleSearchSend', e);
+    };
+    handleSearchcancel = () => {
+        this.setState({
+            searchValue: '',
+        });
+    };
     render() {
-        const {advertisings, announcements} = this.state;
+        const { advertisings, announcements, searchValue } = this.state;
         return (
             <>
-                <Search></Search>
-                <Advertising
-                    url="/product"
-                    advertisings={dataSearch.advertisings}
-                ></Advertising>
-                <Categories></Categories>
-                <AdsList announcements={announcements}></AdsList>
+                <Search
+                    handleSearchSend={this.handleSearchSend}
+                    handleSearchChange={this.handleSearchChange}
+                    searchValue={searchValue}
+                ></Search>
+                {!searchValue && (
+                    <>
+                        <Advertising
+                            url="/product"
+                            advertisings={dataSearch.advertisings}
+                        ></Advertising>
+                        <Categories></Categories>
+                    </>
+                )}
+                <AdsList
+                    title={
+                        !searchValue
+                            ? 'Рекомендации'
+                            : `Найдено ${announcements.length} позиций:`
+                    }
+                    announcements={announcements}
+                ></AdsList>
+                {announcements.length === 0 && searchValue && (
+                    <NotFound
+                        title="Товар не найден"
+                        desc="Спасибо за покупки с помощью EcoFoods"
+                        buttonText="Вернуться на Главную"
+                        button={this.handleSearchcancel}
+                    ></NotFound>
+                )}
             </>
         );
     }

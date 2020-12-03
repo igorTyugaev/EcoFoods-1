@@ -3,11 +3,24 @@ import './style.scss';
 
 export default class Search extends Component {
     render() {
+        const {
+            handleSearchSend,
+            handleSearchChange,
+            searchValue,
+        } = this.props;
         return (
             <>
                 <div className="search__wrapper">
-                    <form className="search">
-                        <input type="text" placeholder="Search Product" />
+                    <form
+                        className="search"
+                        onSubmit={(e) => handleSearchSend(e)}
+                    >
+                        <input
+                            value={searchValue}
+                            onChange={(e) => handleSearchChange(e)}
+                            type="text"
+                            placeholder="Search Product"
+                        />
                         <button>Найти</button>
                     </form>
                 </div>

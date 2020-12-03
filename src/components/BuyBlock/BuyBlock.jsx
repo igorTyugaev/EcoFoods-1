@@ -3,13 +3,11 @@ import { Link } from 'react-router-dom';
 import './style.scss';
 
 export default class BuyBlock extends Component {
-    constructor(props) {
-        super(props);
-    }
     handleBuy = () => {
-        const {handleBuy} = this.props;
+        const { handleBuy } = this.props;
         handleBuy();
     };
+
     render() {
         const { total, isBought } = this.props;
         return (
@@ -28,9 +26,9 @@ export default class BuyBlock extends Component {
                         </button>
                     </>
                 ) : (
-                    <Link className="buy-block__button_active" to="/orders">
+                    <Link className="buy-block__button_active" to="/cart">
                         <button className="buy-block__button buy-block__button_active">
-                            Перейти в заказам
+                            Перейти в корзину
                         </button>
                     </Link>
                 )}

@@ -1,0 +1,28 @@
+.settings-page {
+  padding: 16px;
+
+  input {
+    margin: 12px 0;
+    padding: 13px 16px;
+    width: 100%;
+    background: #FFFFFF;
+    /* Primary (Green) */
+
+    border: 1px solid #1DDE7D;
+    box-sizing: border-box;
+    border-radius: 5px;
+
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 180%;
+    /* identical to box height, or 22px */
+
+    letter-spacing: 0.5px;
+
+    /* Neutral/Grey */
+
+    color: #9098B1;
+  }
+}

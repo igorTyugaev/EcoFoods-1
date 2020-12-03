@@ -2,15 +2,14 @@ import React, { Component } from 'react';
 import Title from '../Title';
 import AdsBlock from '../AdsBlock';
 import './style.scss';
-import img from '../Advertising/img/1.jpg'
+import img from '../Advertising/img/1.jpg';
 
 export default class AdsList extends Component {
     render() {
-        const { announcements } = this.props;
-
+        const { announcements, title } = this.props;
         return (
             <section className="announcement-list__wrapper">
-                <Title h2="Рекомендации"></Title>
+                <Title h2={title}></Title>
                 <ul className="announcement-list">
                     {announcements.map((item) => (
                         <AdsBlock

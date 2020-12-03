@@ -6,7 +6,7 @@ import trash from './trash.svg';
 
 export default class MyProductItem extends Component {
     render() {
-        const { img, title, text, price } = this.props;
+        const { img, title, text, price, canEdit = true } = this.props;
         return (
             <li className="my-product-item">
                 <div className="my-product-item__content">
@@ -25,7 +25,7 @@ export default class MyProductItem extends Component {
                 </div>
 
                 <div className="my-product-item__buttons">
-                    <img src={edit} alt="" />
+                    {canEdit && <img src={edit} alt="" />}
                     <img src={trash} alt="" />
                 </div>
             </li>

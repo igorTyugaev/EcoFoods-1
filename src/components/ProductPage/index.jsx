@@ -57,22 +57,35 @@ export default class ProductPage extends Component {
             isBought: false,
         };
     }
-    componentDidMount(){
+    componentDidMount() {
         const url = URL + 'api/home';
         const settings = MakeConfig(token.get());
-        axios.get(url, settings)
-            .then(resp => {
+        axios
+            .get(url, settings)
+            .then((resp) => {
                 const data = resp.data;
                 console.log(data);
-                const advertisings = data.advertisings.filter(e => e.uuid === this.state.productId);
-                const announcements = data.announcements.filter(e => e.uuid === this.state.productId);
+                const advertisings = data.advertisings.filter(
+                    (e) => e.uuid === this.state.productId
+                );
+                const announcements = data.announcements.filter(
+                    (e) => e.uuid === this.state.productId
+                );
                 if (advertisings.length > 0) {
-                    this.setState({loaded: true, value:advertisings[0].price, data:advertisings[0]});
+                    this.setState({
+                        loaded: true,
+                        value: advertisings[0].price,
+                        data: advertisings[0],
+                    });
                 } else if (announcements.length > 0) {
-                    this.setState({loaded: true, value:announcements[0].price, data:announcements[0]});
+                    this.setState({
+                        loaded: true,
+                        value: announcements[0].price,
+                        data: announcements[0],
+                    });
                 }
             })
-            .catch(err => console.error(err));    
+            .catch((err) => console.error(err));
     }
 
     handleBack = () => {
@@ -82,13 +95,20 @@ export default class ProductPage extends Component {
     handleBuy = () => {
         const url = URL + 'api/create_order/';
         const settings = MakeConfig(token.get());
-        axios.post(url, {
-            product_uuid: this.state.productId, 
-            quantity: parseInt(this.state.value)/parseInt(this.state.data.price),
-        }, settings)
-            .then(resp => this.setState({isBought:true}))
-            .catch(err => console.error(err));
-    }
+        axios
+            .post(
+                url,
+                {
+                    product_uuid: this.state.productId,
+                    quantity:
+                        parseInt(this.state.value) /
+                        parseInt(this.state.data.price),
+                },
+                settings
+            )
+            .then((resp) => this.setState({ isBought: true }))
+            .catch((err) => console.error(err));
+    };
 
     handleChangeCount = (count) => {
         const value = count * this.state.data.price;
@@ -97,14 +117,16 @@ export default class ProductPage extends Component {
         });
     };
     render() {
-        const { value, data, loaded} = this.state;
+        const { value, data, loaded } = this.state;
         return loaded ? (
             <>
                 <Header
                     button={this.handleBack}
                     title="Product details"
                 ></Header>
-                <Advertising advertisings={defaultData.advertisings}></Advertising>
+                <Advertising
+                    advertisings={defaultData.advertisings}
+                ></Advertising>
                 <h1 className="product__title">{data.name}</h1>
                 <div className="product__cost-row">
                     <div className="product__cost">
@@ -116,9 +138,7 @@ export default class ProductPage extends Component {
                     ></InputCount>
                 </div>
                 <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">
-                    {data.description}
-                </p>
+                <p className="product__des-main">{data.description}</p>
                 <SettingsItem
                     img={locationImg}
                     title="Location"
@@ -129,8 +149,14 @@ export default class ProductPage extends Component {
                     title="Продавец"
                     text="@farmer_galaxy"
                 ></SettingsItem>
-                <BuyBlock isBought={this.state.isBought} total={value} handleBuy={this.handleBuy}></BuyBlock>
-            </>           
-        ) : <Preloader></Preloader>;
+                <BuyBlock
+                    isBought={this.state.isBought}
+                    total={value}
+                    handleBuy={this.handleBuy}
+                ></BuyBlock>
+            </>
+        ) : (
+            <Preloader></Preloader>
+        );
     }
 }

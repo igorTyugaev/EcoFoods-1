@@ -14,45 +14,67 @@ export default class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: false,
-            isReg: false,
-            role: '',
+            isLoad: true,
+            isReg: true,
+            role: 'buyer',
             token: '',
         };
     }
     handleChangeRole = (role) => {
-        this.setState({isLoad:false});
-        const url = URL + 'api/update/'
-        axios.patch(url, {
-            is_merchant: role === 'seller',
-            first_name: 'Dmitry',
-            last_name: 'Shchapin',
-            address: 'Улица Пушкина, дом Колотушкина',
-        }, {
-            headers: {
-                Authorization: 'EcoFoods ' + this.state.token,
-            },
-        }).then(resp => this.setState({isLoad: true, role: resp.data.is_merchant ? 'seller' : 'buyer'})).catch(err => console.error(err));
+        this.setState({ isLoad: false });
+        const url = URL + 'api/update/';
+        axios
+            .patch(
+                url,
+                {
+                    is_merchant: role === 'seller',
+                    first_name: 'Dmitry',
+                    last_name: 'Shchapin',
+                    address: 'Улица Пушкина, дом Колотушкина',
+                },
+                {
+                    headers: {
+                        Authorization: 'EcoFoods ' + this.state.token,
+                    },
+                }
+            )
+            .then((resp) =>
+                this.setState({
+                    isLoad: true,
+                    role: resp.data.is_merchant ? 'seller' : 'buyer',
+                })
+            )
+            .catch((err) => console.error(err));
         this.setState({
-            role:role,
-            isLoad:true,
+            role: role,
+            isLoad: true,
         });
     };
     componentDidMount() {
         setTimeout(() => {
             const currentToken = token.get();
-            let state = {isLoad:true};
+            let state = { isLoad: true };
             if (currentToken) {
                 const url = URL + 'api/update/';
                 state['token'] = currentToken;
                 state['isReg'] = true;
                 axios
-                    .patch(url, {}, {
-                    headers: {
-                        Authorization: 'EcoFoods ' + currentToken,
-                    },})
-                    .then(resp => state['role'] = resp.data.is_merchant ? 'seller' : 'buyer')
-                    .catch(err => console.error(err))
+                    .patch(
+                        url,
+                        {},
+                        {
+                            headers: {
+                                Authorization: 'EcoFoods ' + currentToken,
+                            },
+                        }
+                    )
+                    .then(
+                        (resp) =>
+                            (state['role'] = resp.data.is_merchant
+                                ? 'seller'
+                                : 'buyer')
+                    )
+                    .catch((err) => console.error(err))
                     .finally(() => this.setState(state));
             } else {
                 this.setState(state);
@@ -126,6 +148,15 @@ export default class App extends Component {
                                         <NavMenu
                                             role={role}
                                             active="add"
+                                        ></NavMenu>
+                                    )}
+                                />
+                                <Route
+                                    path="/cart"
+                                    render={() => (
+                                        <NavMenu
+                                            role={role}
+                                            active="cart"
                                         ></NavMenu>
                                     )}
                                 />
