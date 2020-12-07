@@ -12,10 +12,21 @@ import emailImg from './email.svg';
 import padlockImg from './padlock.svg';
 import exchangeImg from './exchange.svg';
 
-import { Link } from 'react-router-dom';
+import { changeRole } from '../../store/actionCreators/usersActionCreators';
+import { removeToken } from '../../store/actionCreators/tokenActionCreators';
 
-export default class SettingsList extends Component {
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+const mapDispatchToProps = dispatch => ({
+    changeRole: () => dispatch(changeRole()),
+    removeToken: () => dispatch(removeToken()),
+});
+
+
+class SettingsList extends Component {
     render() {
+        const { changeRole, removeToken } = this.props;
         return (
             <ul className="settings__list">
                 <Link to="/personalArea/settings">
@@ -67,22 +78,25 @@ export default class SettingsList extends Component {
                         text="*******"
                     ></SettingsItem>
                 </Link>
-                <Link to="/personalArea/settings">
+                <Link to="/">
                     <SettingsItem
                         img={exchangeImg}
                         title="Сменить роль"
                         text="Стать продавцом"
+                        handler={() => changeRole()}
                     ></SettingsItem>
                 </Link>
-                <Link to="/personalArea/settings">
+                <Link to="/">
                     <SettingsItem
                         img={doorImg}
                         title="Log out"
                         text="Всего хорошего"
-                        handler={() => token.remove()}
+                        handler={() => removeToken()}
                     ></SettingsItem>
                 </Link>
             </ul>
         );
     }
 }
+
+export default connect(null, mapDispatchToProps)(SettingsList);

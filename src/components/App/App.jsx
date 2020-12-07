@@ -6,116 +6,61 @@ import Registration from '../Registration';
 import PreloaderMain from '../PreloaderMain';
 import RoleSelectorPage from '../RoleSelectorPage';
 import { Route, Switch } from 'react-router-dom';
-import axios from 'axios';
-import URL from '../../utils/url';
-import token from '../../utils/token';
+import { register, login } from '../../store/actionCreators/tokenActionCreators';
+import { getUserInfo, setUserInfo, changeRole } from '../../store/actionCreators/usersActionCreators';
+import { connect } from 'react-redux';
 
-export default class App extends Component {
+const mapStateToProps = (state, ownProps) => {
+    return {
+        isLoad: state.token.loaded && state.user.loaded,
+        token: state.token.value,
+        isReg: !!state.token.value,
+        role: state.user.value.role,
+    };
+};
+
+const mapDispatchToProps = dispatch => {
+    return {
+        login: (email, password) => dispatch(login(email, password)),
+        register: (email, password) => dispatch(register(email, password)),
+        getUserInfo: () => dispatch(getUserInfo()),
+        setUserInfo: (userInfo) => dispatch(setUserInfo(userInfo)),
+        changeRole: () => dispatch(changeRole()),
+    }
+};
+
+class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoad: true,
-            isReg: true,
-            role: 'buyer',
+            isLoad: false,
+            isReg: false,
+            role: '',
             token: '',
         };
     }
+
     handleChangeRole = (role) => {
-        this.setState({ isLoad: false });
-        const url = URL + 'api/update/';
-        axios
-            .patch(
-                url,
-                {
-                    is_merchant: role === 'seller',
-                    first_name: 'Dmitry',
-                    last_name: 'Shchapin',
-                    address: 'Улица Пушкина, дом Колотушкина',
-                },
-                {
-                    headers: {
-                        Authorization: 'EcoFoods ' + this.state.token,
-                    },
-                }
-            )
-            .then((resp) =>
-                this.setState({
-                    isLoad: true,
-                    role: resp.data.is_merchant ? 'seller' : 'buyer',
-                })
-            )
-            .catch((err) => console.error(err));
-        this.setState({
-            role: role,
-            isLoad: true,
-        });
+        console.log(role);
+        this.props.setUserInfo({is_merchant: role === 'seller',});
     };
+
     componentDidMount() {
-        setTimeout(() => {
-            const currentToken = token.get();
-            let state = { isLoad: true };
-            if (currentToken) {
-                const url = URL + 'api/update/';
-                state['token'] = currentToken;
-                state['isReg'] = true;
-                axios
-                    .patch(
-                        url,
-                        {},
-                        {
-                            headers: {
-                                Authorization: 'EcoFoods ' + currentToken,
-                            },
-                        }
-                    )
-                    .then(
-                        (resp) =>
-                            (state['role'] = resp.data.is_merchant
-                                ? 'seller'
-                                : 'buyer')
-                    )
-                    .catch((err) => console.error(err))
-                    .finally(() => this.setState(state));
-            } else {
-                this.setState(state);
-            }
-        }, 1000);
+        this.props.getUserInfo();
     }
+
     handleAuth = (email, password, isLogin) => {
-        let url = URL;
         if (isLogin) {
-            url += 'api/login/';
+            this.props.login(email, password);
         } else {
-            url += 'api/registration/';
+            this.props.register(email, password);
+            this.props.changeRole();
         }
-        axios
-            .post(
-                url,
-                {
-                    email: email,
-                    password: password,
-                },
-                {
-                    headers: {
-                        Authorization: 'EcoFoods',
-                    },
-                }
-            )
-            .then((response) => {
-                console.log(response.data.token);
-                this.setState({
-                    isReg: true,
-                    token: response.data.token,
-                });
-                token.set(response.data.token);
-            })
-            .catch((error) => {
-                console.log(error);
-            });
     };
 
     render() {
-        const { isLoad, isReg, role } = this.state;
+        const { isLoad, isReg, role } = this.props;
+        console.log(this.props);
         return (
             <>
                 {isLoad && (
@@ -214,3 +159,5 @@ export default class App extends Component {
         );
     }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

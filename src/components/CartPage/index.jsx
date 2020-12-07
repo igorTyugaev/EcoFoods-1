@@ -19,13 +19,6 @@ export default class CartPage extends Component {
                     price: '20.32',
                     id: 1,
                 },
-                {
-                    img,
-                    title: 'Фруктовый салат',
-                    text: 'Екатеринбург, Мира, 19',
-                    price: 20.32,
-                    id: 2,
-                },
             ],
         };
     }
@@ -33,10 +26,12 @@ export default class CartPage extends Component {
         const { productList } = this.state;
         const value = productList.reduce(
             (accumulator, currentValue) =>
-                +accumulator.price + +currentValue.price
-        );
+                {
+                    return accumulator + Number(currentValue.price);
+                }
+        , 0);
         this.setState({
-            value,
+            value:value,
         });
     }
     handleBuy = () => {
