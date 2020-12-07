@@ -41,8 +41,9 @@ class App extends Component {
     }
 
     handleChangeRole = (role) => {
-        console.log(role);
-        this.props.setUserInfo({is_merchant: role === 'seller',});
+        this.props.setUserInfo({
+            is_merchant: role === 'seller',
+        });
     };
 
     componentDidMount() {
@@ -52,6 +53,7 @@ class App extends Component {
     handleAuth = (email, password, isLogin) => {
         if (isLogin) {
             this.props.login(email, password);
+            this.props.getUserInfo();
         } else {
             this.props.register(email, password);
             this.props.changeRole();
