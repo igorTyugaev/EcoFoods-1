@@ -5,13 +5,20 @@ import MyProductItem from '../MyProductItem';
 import img from './img/1.jpg';
 import BuyBlock from '../BuyBlock';
 import {connect} from 'react-redux';
+import { removeItem, changeItemCount } from '../../store/actionCreators/cartActionCreators';
 
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        productList: state.cart.value,
+        productList: Object.values(state.cart.value),
+        cart: state.cart.values,
     };
 };
+
+const mapDispatchToProps = dispatch => ({
+    removeItem: (uuid) => dispatch(removeItem(uuid)),
+    changeItemCount: (uuid, newCount) => dispatch(changeItemCount(uuid, newCount)),
+});
 
 class CartPage extends Component {
     constructor(props) {
@@ -42,6 +49,15 @@ class CartPage extends Component {
             value: value,
         });
     }
+    
+
+    handleDelete = (uuid) => {
+        this.props.removeItem(uuid);
+    }
+
+    handleChangeCount = (uuid, newCount) => {
+        this.props.changeItemCount(uuid, newCount);
+    }
 
     handleBuy = () => {
         this.setState({
@@ -60,9 +76,12 @@ class CartPage extends Component {
                 {productList.map((item) => (
                     <MyProductItem
                         key={item.uuid}
+                        id={item.uuid}
                         img={img}
                         title={item.data.name}
                         text={item.data.merchant.address}
+                        handleDelete={this.handleDelete}
+                        handleChangeCount={this.handleChangeCount}
                         // price={`${item.data.price}x${item.quantity}`}
                         price={item.data.price}
                         quantity={item.quantity}
@@ -80,4 +99,4 @@ class CartPage extends Component {
 
 }
 
-export default connect(mapStateToProps)(CartPage);
+export default connect(mapStateToProps, mapDispatchToProps)(CartPage);

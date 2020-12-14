@@ -19,8 +19,9 @@ import axios from 'axios';
 import Preloader from '../PreloaderMain';
 
 
-import {addItemToCart} from '../../store/actionCreators/cartActionCreators'
+import {addItemToCart, restoreCart} from '../../store/actionCreators/cartActionCreators'
 import {connect} from 'react-redux';
+import cart from '../../store/reducers/cart';
 
 const defaultData = {
     advertisings: [
@@ -49,6 +50,11 @@ const defaultData = {
     unit: 'per Lit',
 };
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        cart: state.cart.value,
+    };
+};
 const mapDispatchToProps = dispatch => ({
     addItemToCart: (item) => dispatch(addItemToCart(item)),
 });
@@ -165,4 +171,4 @@ class ProductPage extends Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(ProductPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

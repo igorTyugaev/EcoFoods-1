@@ -6,15 +6,25 @@ import trash from './trash.svg';
 import InputCount from "../InputCount";
 
 export default class MyProductItem extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: props.quantity || 1,
+        };
+    }
     handleChangeCount = (count) => {
+        const { handleChangeCount, id } = this.props;
+        if (handleChangeCount) {
+            handleChangeCount(id, count);
+        }
         this.setState({
             value: count,
         });
     };
 
     render() {
-        const {img, title, text, price, quantity, canEdit = true} = this.props;
+        const {value} = this.state;
+        const {img, title, text, price, quantity, canEdit = true, id='', handleDelete = (uuid) => {},} = this.props;
         return (
             <li className="my-product-item">
                 <div className="my-product-item-container">
@@ -35,10 +45,11 @@ export default class MyProductItem extends Component {
                     <div className="my-product-item__row-container">
                         <div className="my-product-item__buttons">
                             {canEdit && <img src={edit} alt=""/>}
-                            <img src={trash} alt=""/>
+                            <img onClick={() => handleDelete(id)} src={trash} alt=""/>
                         </div>
                         <InputCount
                             handleChangeCount={this.handleChangeCount}
+                            value={value}
                         ></InputCount>
                     </div>
                 </div>
