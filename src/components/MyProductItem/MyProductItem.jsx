@@ -9,7 +9,7 @@ export default class MyProductItem extends Component {
 
     handleChangeCount = (count) => {
         this.setState({
-            value: 2,
+            value: count,
         });
     };
 
