@@ -3,10 +3,11 @@
     border-radius: 10px;
     overflow: hidden;
     width: 132px;
+    height: 42px;
     display: flex;
 
     &__input {
-        height: 36px;
+        height: 100%;
         width: 50px;
         background: #1DDE7D;
         font-style: normal;
@@ -22,6 +23,7 @@
 
     &__button {
         color: #9098B1;
+        margin: auto 0;
         font-size: 22px;
         width: 40px;
         height: 36px;

@@ -130,17 +130,21 @@ class ProductPage extends Component {
                 <div className="product__cost-row">
                     <div className="product__cost">
                         <b>{data.price}</b>
-                        <span> {data.units}</span>
+                        <span>{data.units}</span>
+                        <InputCount
+                            handleChangeCount={this.handleChangeCount}
+                        ></InputCount>
                     </div>
-                    <InputCount
-                        handleChangeCount={this.handleChangeCount}
-                    ></InputCount>
                 </div>
                 <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">{data.description}</p>
+                <p className="product__des-main">{data.description}
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta est et laudantium numquam
+                    reprehenderit vero. Est inventore nulla quia sit? Animi error exercitationem facere omnis similique
+                    sit tempore voluptates.
+                </p>
                 <SettingsItem
                     img={locationImg}
-                    title="Location"
+                    title="Локация"
                     text={data.merchant ? data.merchant.address : ' '}
                 ></SettingsItem>
                 <SettingsItem
