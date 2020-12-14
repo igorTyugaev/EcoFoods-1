@@ -1,6 +1,8 @@
+@import "../../helper";
+
 .nav-menu {
     width: 100%;
-    height: 80px;
+    height: $nav-menu-height;
     border-top: 1px solid #d7d7d7;
     background-color: #ffffff;
     display: flex;

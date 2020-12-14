@@ -30,8 +30,8 @@ const data = {
     advertisings: [
         {
             img: img1,
-            title: 'Молоко кайфовое',
-            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
+            title: 'Сезонные овощи',
+            description: `Лучшие сорта, отборные плоды — все это для вас! Высокое качество`,
             price: '200руб',
             id: 1,
         },

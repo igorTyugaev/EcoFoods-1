@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Advertising from '../Advertising';
 import Header from '../Header';
 import InputCount from '../InputCount/';
@@ -20,7 +20,7 @@ import Preloader from '../PreloaderMain';
 
 
 import {addItemToCart} from '../../store/actionCreators/cartActionCreators'
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 
 const defaultData = {
     advertisings: [
@@ -65,6 +65,7 @@ class ProductPage extends Component {
             isBought: false,
         };
     }
+
     componentDidMount() {
         const url = URL + 'api/home';
         const settings = MakeConfig(token.get());
@@ -114,18 +115,18 @@ class ProductPage extends Component {
             value: value.toFixed(2),
         });
     };
+
     render() {
-        const { value, data, loaded } = this.state;
+        const {value, data, loaded} = this.state;
         return loaded ? (
             <>
                 <Header
                     button={this.handleBack}
-                    title="Product details"
+                    title={data.name}
                 ></Header>
                 <Advertising
                     advertisings={defaultData.advertisings}
                 ></Advertising>
-                <h1 className="product__title">{data.name}</h1>
                 <div className="product__cost-row">
                     <div className="product__cost">
                         <b>{data.price}</b>
