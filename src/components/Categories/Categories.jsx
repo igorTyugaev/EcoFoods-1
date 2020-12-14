@@ -8,7 +8,7 @@ export default class Categories extends Component {
     render() {
         return (
             <section className="categories__wrapper">
-                <Title h2="Категории" aText="Больше категорий"></Title>
+                <Title h2="Категории" aText=""></Title>
                 <ul className="categories">
                     <li className="categories__item categories__item_active">
                         <a href="/">
