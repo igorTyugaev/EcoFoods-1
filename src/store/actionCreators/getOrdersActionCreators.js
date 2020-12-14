@@ -22,7 +22,7 @@ export function getOrdersStart() {
     }
 }
 
-export default function getOrders() {
+export function getOrders() {
     return (dispatch, getState, { url }) => {
         dispatch(getOrdersStart());
         axios

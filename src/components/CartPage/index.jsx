@@ -4,8 +4,16 @@ import Header from '../Header';
 import MyProductItem from '../MyProductItem';
 import img from './img/1.jpg';
 import BuyBlock from '../BuyBlock';
+import { connect } from 'react-redux';
 
-export default class CartPage extends Component {
+
+const mapStateToProps = (state, ownProps) => {
+    return {
+        productList: state.cart.value,
+    };
+};
+
+class CartPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,18 +30,20 @@ export default class CartPage extends Component {
             ],
         };
     }
+
     componentDidMount() {
-        const { productList } = this.state;
+        const { productList } = this.props;
         const value = productList.reduce(
             (accumulator, currentValue) =>
                 {
-                    return accumulator + Number(currentValue.price);
+                    return accumulator + Number(currentValue.data.price) * Number(currentValue.quantity);
                 }
         , 0);
         this.setState({
             value:value,
         });
     }
+
     handleBuy = () => {
         this.setState({
             isBought: true,
@@ -42,18 +52,19 @@ export default class CartPage extends Component {
     };
 
     render() {
-        const { productList, value, isBought } = this.state;
+        const { value, isBought } = this.state;
+        const { productList } = this.props;
         return (
             <>
                 {isBought && <Redirect push to="/cart/delivery" />}
                 <Header title="Корзина"></Header>
                 {productList.map((item) => (
                     <MyProductItem
-                        key={item.id}
-                        img={item.img}
-                        title={item.title}
-                        text={item.text}
-                        price={item.price}
+                        key={item.uuid}
+                        img={img}
+                        title={item.data.name}
+                        text={item.data.merchant.address}
+                        price={`${item.data.price}x${item.quantity}`}
                         canEdit={false}
                     ></MyProductItem>
                 ))}
@@ -66,3 +77,5 @@ export default class CartPage extends Component {
         );
     }
 }
+
+export default connect(mapStateToProps)(CartPage);

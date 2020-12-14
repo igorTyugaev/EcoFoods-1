@@ -18,6 +18,10 @@ import MakeConfig from '../../utils/AxiosConfig';
 import axios from 'axios';
 import Preloader from '../PreloaderMain';
 
+
+import {addItemToCart} from '../../store/actionCreators/cartActionCreators'
+import { connect } from 'react-redux';
+
 const defaultData = {
     advertisings: [
         {
@@ -45,7 +49,11 @@ const defaultData = {
     unit: 'per Lit',
 };
 
-export default class ProductPage extends Component {
+const mapDispatchToProps = dispatch => ({
+    addItemToCart: (item) => dispatch(addItemToCart(item)),
+});
+
+class ProductPage extends Component {
     constructor(props) {
         super(props);
         const match = props.match;
@@ -93,21 +101,11 @@ export default class ProductPage extends Component {
     };
 
     handleBuy = () => {
-        const url = URL + 'api/create_order/';
-        const settings = MakeConfig(token.get());
-        axios
-            .post(
-                url,
-                {
-                    product_uuid: this.state.productId,
-                    quantity:
-                        parseInt(this.state.value) /
-                        parseInt(this.state.data.price),
-                },
-                settings
-            )
-            .then((resp) => this.setState({ isBought: true }))
-            .catch((err) => console.error(err));
+        this.props.addItemToCart({
+            uuid: this.state.productId,
+            quantity: Number(this.state.value) / Number(this.state.data.price),
+            data: this.state.data,
+        });
     };
 
     handleChangeCount = (count) => {
@@ -160,3 +158,6 @@ export default class ProductPage extends Component {
         );
     }
 }
+
+
+export default connect(null, mapDispatchToProps)(ProductPage);
