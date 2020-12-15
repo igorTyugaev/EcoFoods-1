@@ -113,6 +113,7 @@ class ProductPage extends Component {
             quantity: Number(this.state.value) / Number(this.state.data.price),
             data: this.state.data,
         });
+        this.setState({isBought: true});
     };
 
     handleChangeCount = (count) => {

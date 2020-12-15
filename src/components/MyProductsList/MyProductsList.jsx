@@ -51,6 +51,7 @@ export default class MyProductsList extends Component {
                         title={item.name}
                         text={item.description}
                         price={item.price}
+                        disableCount={true}
                     ></MyProductItem>
                 ))}
             </ul>

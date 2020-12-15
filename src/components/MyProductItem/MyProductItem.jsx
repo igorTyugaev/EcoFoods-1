@@ -24,7 +24,7 @@ export default class MyProductItem extends Component {
 
     render() {
         const {value} = this.state;
-        const {img, title, text, price, quantity, canEdit = true, id='', handleDelete = (uuid) => {},} = this.props;
+        const {img, title, text, price, disableCount = false, canEdit = true, id='', handleDelete = (uuid) => {},} = this.props;
         return (
             <li className="my-product-item">
                 <div className="my-product-item-container">
@@ -47,10 +47,11 @@ export default class MyProductItem extends Component {
                             {canEdit && <img src={edit} alt=""/>}
                             <img onClick={() => handleDelete(id)} src={trash} alt=""/>
                         </div>
-                        <InputCount
-                            handleChangeCount={this.handleChangeCount}
-                            value={value}
-                        ></InputCount>
+                        { !disableCount && 
+                            <InputCount
+                                handleChangeCount={this.handleChangeCount}
+                                value={value}
+                            ></InputCount> }
                     </div>
                 </div>
                 <hr/>
