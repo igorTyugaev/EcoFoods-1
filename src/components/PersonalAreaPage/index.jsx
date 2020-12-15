@@ -7,7 +7,7 @@ export default class PersonalAreaPage extends Component {
     render() {
         return (
             <>
-                <Header title="Account"></Header>
+                <Header title="Аккаунт"></Header>
                 <Profile></Profile>
                 <SettingsList></SettingsList>
             </>

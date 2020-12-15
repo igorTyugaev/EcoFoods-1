@@ -8,7 +8,7 @@ export default class Products extends Component {
         const { products } = this.props;
         return (
             <section className="products">
-                <h2 className="products__title">Products</h2>
+                <h2 className="products__title">Продукты</h2>
                 <ul className="products__list">
                     {products.map((item) => (
                         <ProductItem

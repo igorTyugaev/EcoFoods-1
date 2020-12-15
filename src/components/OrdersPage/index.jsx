@@ -6,7 +6,7 @@ export default class Orders extends Component {
     render() {
         return (
             <>
-                <Header title="Orders"></Header>
+                <Header title="Заказы"></Header>
                 <OrdersList></OrdersList>
             </>
         );

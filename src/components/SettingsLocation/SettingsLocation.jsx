@@ -12,6 +12,8 @@ export default class SettingsLocation extends Component {
                 <input type="text" />
                 <h2 className="h2">Кв./Офис</h2>
                 <input type="text" />
+                <h2 className="h2">Телефон</h2>
+                <input type="text" />
             </main>
         );
     }
