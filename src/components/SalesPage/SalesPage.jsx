@@ -7,6 +7,7 @@ import SalesLocationChart from '../SalesLocationChart';
 import img1 from './img/1.jpg';
 import img2 from './img/2.jpg';
 import img3 from './img/3.jpg';
+import img4 from './img/4.jpg';
 
 const data = {
     statLocation: [
@@ -29,40 +30,29 @@ const data = {
     ],
     advertisings: [
         {
-            img: img1,
-            title: 'Сезонные овощи',
-            description: `Лучшие сорта, отборные плоды — все это для вас! Высокое качество`,
-            price: '200руб',
+            img: img4,
+            title: 'Как увеличить конверсию продаж?',
+            description: ``,
+            price: '',
             id: 1,
         },
+
         {
-            img: img2,
-            title: 'Молоко кайфовое',
-            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-            price: '200руб',
-            id: 2,
+            img: img4,
+            title: 'Как увеличить конверсию продаж?',
+            description: ``,
+            price: '',
+            id: 1,
         },
+
         {
-            img: img3,
-            title: 'Молоко кайфовое',
-            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-            price: '200руб',
-            id: 3,
+            img: img4,
+            title: 'Как увеличить конверсию продаж?',
+            description: ``,
+            price: '',
+            id: 1,
         },
-        {
-            img: img1,
-            title: 'Молоко кайфовое',
-            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-            price: '200руб',
-            id: 4,
-        },
-        {
-            img: img2,
-            title: 'Молоко кайфовое',
-            description: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit, iusto Velit, iusto Velit, iusto...`,
-            price: '200руб',
-            id: 5,
-        },
+
     ],
 };
 

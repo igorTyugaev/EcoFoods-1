@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a16eb4bc-affe-4d25-8ecd-85b8900150be" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/SalesPage/img/4.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Advertising/flickity.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Advertising/flickity.min.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Advertising/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Advertising/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SalesPage/SalesPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SalesPage/SalesPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SearchPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchPage/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,9 +27,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/components/SalesPage/img" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/components/SalesPage/img" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
@@ -52,7 +58,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607956450359</updated>
       <workItem from="1607956453755" duration="15715000" />
-      <workItem from="1608004770183" duration="10202000" />
+      <workItem from="1608004770183" duration="11773000" />
     </task>
     <servers />
   </component>
