@@ -46,7 +46,7 @@ export function setUserInfo(userInfo) {
     return async (dispatch, getState, { url }) => {
         dispatch(userInfoStart());
         try {
-            const resp = await axios.patch(url + 'update/', userInfo);
+            const resp = await axios.patch(url + 'update_user_info/', userInfo);
             return dispatch(userInfoSuccess(resp.data));
         } catch (error) {
             return dispatch(userInfoFailure(error));
