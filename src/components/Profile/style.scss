@@ -1,5 +1,5 @@
 .profile {
-    padding: 12px;
+    padding: 12px 0;
     display: flex;
 
     &__wrapper {
@@ -16,6 +16,7 @@
     &__desc {
         display: flex;
         flex-direction: column;
+        justify-content: center;
         padding-left: 16px;
 
         b {

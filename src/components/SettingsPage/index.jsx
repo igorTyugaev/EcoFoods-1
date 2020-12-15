@@ -12,7 +12,7 @@ export default class SettingsPage extends Component {
         let title = '';
         switch (type) {
             case 'location': // if (x === 'value1')
-                title = 'Адрес';
+                title = 'Редактировать профиль';
                 break;
             default:
                 title = 'Настройки';

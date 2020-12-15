@@ -135,19 +135,17 @@ class ProductPage extends Component {
                 ></Advertising>
                 <div className="product__cost-row">
                     <div className="product__cost">
-                        <b>{data.price}</b>
-                        <span>{data.units}</span>
+                        <div className="product__cost_col">
+                            <b>{data.price}</b>
+                            <span>{data.units}</span>
+                        </div>
                         <InputCount
                             handleChangeCount={this.handleChangeCount}
                         ></InputCount>
                     </div>
                 </div>
-                <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">{data.description}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta est et laudantium numquam
-                    reprehenderit vero. Est inventore nulla quia sit? Animi error exercitationem facere omnis similique
-                    sit tempore voluptates.
-                </p>
+                <h3 className="product__des-title">Описание</h3>
+                <p className="product__des-main">{data.description || 'Упс… Кажется, продавец не добавил описание товара('}</p>
                 <SettingsItem
                     img={locationImg}
                     title="Локация"
@@ -168,6 +166,7 @@ class ProductPage extends Component {
             <Preloader></Preloader>
         );
     }
+
 }
 
 

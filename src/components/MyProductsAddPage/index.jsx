@@ -60,7 +60,23 @@ export default class MyProductsAddPage extends Component {
                         value={this.state.category}
                         onChange={(ev) => this.setState({category:ev.target.value})}>
                         <option>Мясо</option>
+                        <option>Рыба</option>
+                        <option>Курица</option>
+                        <option>Яйца</option>
                         <option>Овощи</option>
+                        <option>Фрукты</option>
+                        <option>Кисломолочная продукция</option>
+                        <option>Молочная продукция</option>
+                        <option>Ягоды</option>
+                        <option>Замороженные продукты</option>
+                        <option>Сыры</option>
+                        <option>Грибы</option>
+                        <option>Ягоды</option>
+                        <option>Орехи</option>
+                        <option>Безалкогольные напитки</option>
+                        <option>Масло</option>
+                        <option>Крупы</option>
+
                     </select>
                     <h2 className="my-products-add-page__title">Описание</h2>
                     <textarea
@@ -85,7 +101,7 @@ export default class MyProductsAddPage extends Component {
                     </h2>
                     <div className="my-products-add-page__cost">
                         <input
-                            placeholder="$1.245"
+                            placeholder="145"
                             type="text"
                             className="my-products-add-page__input"
                             value={this.state.price}
@@ -98,6 +114,7 @@ export default class MyProductsAddPage extends Component {
                         >
                             <option>руб / лит.</option>
                             <option>руб / кг.</option>
+                            <option>руб / шт.</option>
                         </select>
                     </div>
                     <button className="my-products-add-page__add-button" onClick={this.handleAdd}>

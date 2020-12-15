@@ -109,7 +109,7 @@ https://flickity.metafizzy.co
 .flickity-page-dots {
     position: absolute;
     width: 100%;
-    bottom: -25px;
+    bottom: 15px;
     padding: 0;
     margin: 0;
     list-style: none;
@@ -126,9 +126,8 @@ https://flickity.metafizzy.co
     width: 10px;
     height: 10px;
     margin: 0 8px;
-    background: #333;
+    background: #EBF0FF;
     border-radius: 50%;
-    opacity: .25;
     cursor: pointer
 }
 
