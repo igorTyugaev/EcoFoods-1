@@ -1,0 +1,132 @@
+.registration {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    top: 0;
+    padding: 16px;
+
+    .logo {
+        margin-bottom: 16px;
+    }
+
+    &__title {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 150%;
+        /* identical to box height, or 24px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Neutral/Dark */
+
+        color: #223263;
+    }
+
+    span {
+        font-style: normal;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 180%;
+        /* identical to box height, or 22px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        /* Neutral/Grey */
+
+        color: #9098B1;
+    }
+
+    &__form {
+        margin-top: 28px;
+        width: 100%;
+
+        &_error {
+            .registration__input-wrapper_error {
+                border: 1px solid #ff001e;
+
+                path {
+                    fill: #ff001e;
+                }
+            }
+        }
+
+        svg {
+            margin-right: 12px;
+        }
+
+        button {
+            background: #1DDE7D;
+            box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+            padding: 16px;
+            margin-top: 8px;
+            width: 100%;
+            border-radius: 5px;
+
+            font-style: normal;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 180%;
+            /* or 25px */
+
+            text-align: center;
+            letter-spacing: 0.5px;
+
+            /* Background/White */
+
+            color: #FFFFFF;
+            margin-bottom: 16px;
+        }
+    }
+
+    &__input-wrapper {
+        border: 1px solid #EBF0FF;
+        padding: 13px 16px;
+        border-radius: 5px;
+        margin-bottom: 8px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+
+        path {
+            transition: .3s;
+        }
+
+        input {
+            background: #fff;
+        }
+
+        &_active {
+            border: 1px solid #1DDE7D;
+
+            path {
+                fill: #1DDE7D;
+            }
+        }
+    }
+
+    &__a {
+        margin: 8px 0;
+    }
+
+    a {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 12px;
+        line-height: 150%;
+        /* identical to box height, or 18px */
+
+        text-align: center;
+        letter-spacing: 0.5px;
+
+        color: #1DDE7D;
+    }
+
+}

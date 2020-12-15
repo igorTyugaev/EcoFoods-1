@@ -23,24 +23,28 @@ const mapDispatchToProps = dispatch => ({
     removeToken: () => dispatch(removeToken()),
 });
 
+const mapStateToProps = (state, ownProps) => ({
+    userInfo: state.user.value,
+});
+
 
 class SettingsList extends Component {
     render() {
-        const { changeRole, removeToken } = this.props;
+        const { changeRole, removeToken, userInfo } = this.props;
         return (
             <ul className="settings__list">
                 <Link to="/personalArea/settings">
                     <SettingsItem
                         img={locationImg}
                         title="Локация"
-                        text="Yekaterinburg, Mira, 19"
+                        text={userInfo.address || 'Адрес не указан'}
                     ></SettingsItem>
                 </Link>
                 <Link to="/personalArea/settings">
                     <SettingsItem
                         img={telephoneImg}
                         title="Телефон"
-                        text="8 (951) 270-00-00"
+                        text={userInfo.phone || 'Номер не указан'}
                     ></SettingsItem>
                 </Link>
                 {/*<Link to="/personalArea/settings">*/}
@@ -78,4 +82,4 @@ class SettingsList extends Component {
     }
 }
 
-export default connect(null, mapDispatchToProps)(SettingsList);
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsList);
