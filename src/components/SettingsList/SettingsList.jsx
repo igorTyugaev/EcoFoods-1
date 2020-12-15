@@ -43,14 +43,14 @@ class SettingsList extends Component {
                         text="8 (951) 270-00-00"
                     ></SettingsItem>
                 </Link>
-                <Link to="/personalArea/settings">
-                    <SettingsItem
-                        img={emailImg}
-                        title="Email"
-                        text="jenkinstix@gmail.com"
-                    ></SettingsItem>
-                </Link>
-                <Link to="/personalArea/settings">
+                {/*<Link to="/personalArea/settings">*/}
+                {/*    <SettingsItem*/}
+                {/*        img={emailImg}*/}
+                {/*        title="Email"*/}
+                {/*        text="jenkinstix@gmail.com"*/}
+                {/*    ></SettingsItem>*/}
+                {/*</Link>*/}
+                <Link to="/personalArea/">
                     <SettingsItem
                         img={padlockImg}
                         title="Сменить пароль"

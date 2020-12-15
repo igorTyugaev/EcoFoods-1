@@ -60,17 +60,22 @@ export default class MyProductsAddPage extends Component {
                         value={this.state.category}
                         onChange={(ev) => this.setState({category:ev.target.value})}>
                         <option>Мясо</option>
+                        <option>Рыба</option>
+                        <option>Курица</option>
+                        <option>Яйца</option>
                         <option>Овощи</option>
                         <option>Фрукты</option>
-                        <option>Сыр</option>
-                        <option>Масло, маргарин, спред</option>
                         <option>Кисломолочная продукция</option>
+                        <option>Молочная продукция</option>
                         <option>Ягоды</option>
                         <option>Замороженные продукты</option>
-                        <option>Баранина</option>
-                        <option>Свинина</option>
-                        <option>Курица</option>
-                        <option>Говядина</option>
+                        <option>Сыры</option>
+                        <option>Грибы</option>
+                        <option>Ягоды</option>
+                        <option>Орехи</option>
+                        <option>Безалкогольные напитки</option>
+                        <option>Масло</option>
+                        <option>Крупы</option>
 
                     </select>
                     <h2 className="my-products-add-page__title">Описание</h2>
