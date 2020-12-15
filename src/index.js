@@ -4,6 +4,7 @@ import App from './components/App';
 import './reset.scss';
 import store from './store/store';
 import { removeToken } from './store/actionCreators/tokenActionCreators';
+import { restoreCart } from './store/actionCreators/cartActionCreators';
 import axios from 'axios';
 import { Provider } from 'react-redux';
 
@@ -22,6 +23,12 @@ axios.interceptors.response.use(null, (err) => {
     }
     return Promise.reject(err);
 });
+
+const cart = localStorage.getItem('cart');
+console.log(cart);
+if (cart) {
+    store.dispatch(restoreCart(JSON.parse(cart)));
+}
 
 ReactDOM.render(
     <Provider store={store}>

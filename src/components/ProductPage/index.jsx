@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Advertising from '../Advertising';
 import Header from '../Header';
 import InputCount from '../InputCount/';
@@ -19,8 +19,9 @@ import axios from 'axios';
 import Preloader from '../PreloaderMain';
 
 
-import {addItemToCart} from '../../store/actionCreators/cartActionCreators'
-import { connect } from 'react-redux';
+import {addItemToCart, restoreCart} from '../../store/actionCreators/cartActionCreators'
+import {connect} from 'react-redux';
+import cart from '../../store/reducers/cart';
 
 const defaultData = {
     advertisings: [
@@ -49,6 +50,11 @@ const defaultData = {
     unit: 'per Lit',
 };
 
+const mapStateToProps = (state, ownProps) => {
+    return {
+        cart: state.cart.value,
+    };
+};
 const mapDispatchToProps = dispatch => ({
     addItemToCart: (item) => dispatch(addItemToCart(item)),
 });
@@ -65,6 +71,7 @@ class ProductPage extends Component {
             isBought: false,
         };
     }
+
     componentDidMount() {
         const url = URL + 'api/home';
         const settings = MakeConfig(token.get());
@@ -114,32 +121,36 @@ class ProductPage extends Component {
             value: value.toFixed(2),
         });
     };
+
     render() {
-        const { value, data, loaded } = this.state;
+        const {value, data, loaded} = this.state;
         return loaded ? (
             <>
                 <Header
                     button={this.handleBack}
-                    title="Product details"
+                    title={data.name}
                 ></Header>
                 <Advertising
                     advertisings={defaultData.advertisings}
                 ></Advertising>
-                <h1 className="product__title">{data.name}</h1>
                 <div className="product__cost-row">
                     <div className="product__cost">
                         <b>{data.price}</b>
-                        <span> {data.units}</span>
+                        <span>{data.units}</span>
+                        <InputCount
+                            handleChangeCount={this.handleChangeCount}
+                        ></InputCount>
                     </div>
-                    <InputCount
-                        handleChangeCount={this.handleChangeCount}
-                    ></InputCount>
                 </div>
                 <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">{data.description}</p>
+                <p className="product__des-main">{data.description}
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta est et laudantium numquam
+                    reprehenderit vero. Est inventore nulla quia sit? Animi error exercitationem facere omnis similique
+                    sit tempore voluptates.
+                </p>
                 <SettingsItem
                     img={locationImg}
-                    title="Location"
+                    title="Локация"
                     text={data.merchant ? data.merchant.address : ' '}
                 ></SettingsItem>
                 <SettingsItem
@@ -160,4 +171,4 @@ class ProductPage extends Component {
 }
 
 
-export default connect(null, mapDispatchToProps)(ProductPage);
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

@@ -1,3 +1,9 @@
+@import "../../helper";
+
+main {
+    padding-bottom: $bottom-list;
+}
+
 .product {
     &__title {
         padding: 20px;
@@ -5,7 +11,6 @@
         font-weight: bold;
         font-size: 24px;
         line-height: 100%;
-        /* identical to box height, or 24px */
 
         display: flex;
         align-items: flex-end;
@@ -16,19 +21,24 @@
 
     &__cost-row {
         display: flex;
-        padding: 0 20px 20px 20px;
+        padding: 40px 20px 20px;
         width: 100%;
         justify-content: space-between;
         border-bottom: 1px solid #EBF0FF;
     }
 
     &__cost {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
         b {
             font-style: normal;
             font-weight: normal;
             font-size: 36px;
             line-height: 100%;
-            /* identical to box height, or 36px */
 
             letter-spacing: 0.5px;
 
@@ -38,9 +48,8 @@
         span {
             font-style: normal;
             font-weight: bold;
-            font-size: 12px;
+            font-size: 20px;
             line-height: 200%;
-            /* identical to box height, or 24px */
 
             letter-spacing: 0.5px;
 
@@ -55,11 +64,8 @@
         font-weight: normal;
         font-size: 12px;
         line-height: 180%;
-        /* or 22px */
 
         letter-spacing: 0.5px;
-
-        /* Neutral/Grey */
 
         color: #9098B1;
     }
@@ -70,11 +76,8 @@
         font-weight: bold;
         font-size: 14px;
         line-height: 150%;
-        /* identical to box height, or 21px */
 
         letter-spacing: 0.5px;
-
-        /* Neutral/Dark */
 
         color: #223263;
     }

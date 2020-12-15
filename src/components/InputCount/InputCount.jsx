@@ -6,7 +6,7 @@ export default class InputCount extends Component {
         super(props);
 
         this.state = {
-            value: 1,
+            value: props.value || 1,
         };
     }
 

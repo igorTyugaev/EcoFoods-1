@@ -19,7 +19,7 @@ export default class Search extends Component {
                             value={searchValue}
                             onChange={(e) => handleSearchChange(e)}
                             type="text"
-                            placeholder="Search Product"
+                            placeholder="Искать на EcoFoods"
                         />
                         <button>Найти</button>
                     </form>

@@ -1,0 +1,27 @@
+//  Sass Functions
+@function get-vw($px-vw, $base-vw: 1280px) {
+  @return ($px-vw * 100vw) / $base-vw;
+}
+
+@function get-vh($px-vh, $base-vh: 600px) {
+  @return ($px-vh * 100vh) / $base-vh;
+}
+
+//  Sass Colors Variables
+$green: #249D6A;
+
+
+//  Sass Dimensions Variables
+$nav-menu-height: 80px;
+$bottom-list: 160px;
+
+
+//  Sass Screen Variables
+$break-point-large-screen: 1280px;
+
+//$break-point-tablet-2: 700px;
+$break-point-mobile: 520px;
+
+//  Sass Z-index Variables
+$z-index-text: 2;
+
