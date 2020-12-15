@@ -50,6 +50,7 @@ export function setToken(token) {
 
 export function removeToken() {
     tokenStorage.remove();
+    localStorage.removeItem('cart');
     return {
         type: actions.REMOVE_TOKEN,
         value: '',

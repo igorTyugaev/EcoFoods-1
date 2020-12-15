@@ -1,70 +1,68 @@
+@import "../../helper";
+
 .buy-block {
-    height: 100px;
-    width: 100%;
-    background-color: #fff;
-    border-top: 1px solid #d7d7d7;
-    position: fixed;
-    bottom: 90px;
-    z-index: 10000;
+  position: absolute;
+  left: 0;
+  bottom: $nav-menu-height;
+  height: 80px;
+  width: 100%;
+  background-color: #fff;
+  border-top: 1px solid #d7d7d7;
+  position: fixed;
+  padding: 20px;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__price {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 20px;
-
-    div {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-    }
-
-    &__button {
-        background: #1DDE7D;
-        border-radius: 10px;
-        width: 200px;
-        height: 50px;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 14px;
-        /* or 25px */
-
-
-        letter-spacing: 0.5px;
-
-        color: #FFFFFF;
-    }
-
-    &__button_active {
-        width: 100%;
-    }
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
 
     span {
-        font-style: normal;
-        font-weight: normal;
-        font-size: 24px;
-        line-height: 32px;
-        /* identical to box height, or 133% */
+      font-style: normal;
+      font-weight: normal;
+      font-size: 24px;
+      line-height: 32px;
 
-        display: flex;
-        align-items: flex-end;
-        letter-spacing: -0.01em;
+      display: flex;
+      align-items: flex-end;
+      letter-spacing: -0.01em;
 
-        color: #223263;
+      color: #223263;
     }
 
     b {
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 24px;
-        /* identical to box height, or 150% */
+      font-style: normal;
+      font-weight: normal;
+      font-size: 16px;
+      line-height: 24px;
 
-        display: flex;
-        align-items: flex-end;
-        letter-spacing: -0.01em;
+      display: flex;
+      align-items: flex-end;
+      letter-spacing: -0.01em;
 
-        color: #223263;
+      color: #223263;
     }
+  }
 
+  &__button {
+    background: #1DDE7D;
+    border-radius: 10px;
+    width: 200px;
+    height: 56px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
 
+    letter-spacing: 0.5px;
+
+    color: #FFFFFF;
+  }
+
+  &__button_active {
+    width: 100%;
+  }
 }
