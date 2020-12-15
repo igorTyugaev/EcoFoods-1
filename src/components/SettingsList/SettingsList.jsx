@@ -31,29 +31,8 @@ class SettingsList extends Component {
             <ul className="settings__list">
                 <Link to="/personalArea/settings">
                     <SettingsItem
-                        img={nameImg}
-                        title="Имя"
-                        text="Nikita"
-                    ></SettingsItem>
-                </Link>
-                <Link to="/personalArea/settings">
-                    <SettingsItem
-                        img={nameImg}
-                        title="Фамилия"
-                        text="Koltashov"
-                    ></SettingsItem>
-                </Link>
-                <Link to="/personalArea/settings">
-                    <SettingsItem
-                        img={userImg}
-                        title="Аватар"
-                        text="Сменить аватар"
-                    ></SettingsItem>
-                </Link>
-                <Link to="/personalArea/settings">
-                    <SettingsItem
                         img={locationImg}
-                        title="Location"
+                        title="Локация"
                         text="Yekaterinburg, Mira, 19"
                     ></SettingsItem>
                 </Link>
@@ -89,7 +68,7 @@ class SettingsList extends Component {
                 <Link to="/">
                     <SettingsItem
                         img={doorImg}
-                        title="Log out"
+                        title="Выйти"
                         text="Всего хорошего"
                         handler={() => removeToken()}
                     ></SettingsItem>

@@ -15,7 +15,7 @@ export default class Profile extends Component {
                     <div className="profile__desc">
                         <b>Nikita Koltashov</b>
                         <span>jenkinstix@gmail.com</span>
-                        <Rating value={4.4}></Rating>
+                        {/*<Rating value={4.4}></Rating>*/}
                     </div>
                 </div>
             </div>
