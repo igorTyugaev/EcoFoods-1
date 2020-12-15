@@ -61,6 +61,17 @@ export default class MyProductsAddPage extends Component {
                         onChange={(ev) => this.setState({category:ev.target.value})}>
                         <option>Мясо</option>
                         <option>Овощи</option>
+                        <option>Фрукты</option>
+                        <option>Сыр</option>
+                        <option>Масло, маргарин, спред</option>
+                        <option>Кисломолочная продукция</option>
+                        <option>Ягоды</option>
+                        <option>Замороженные продукты</option>
+                        <option>Баранина</option>
+                        <option>Свинина</option>
+                        <option>Курица</option>
+                        <option>Говядина</option>
+
                     </select>
                     <h2 className="my-products-add-page__title">Описание</h2>
                     <textarea
@@ -85,7 +96,7 @@ export default class MyProductsAddPage extends Component {
                     </h2>
                     <div className="my-products-add-page__cost">
                         <input
-                            placeholder="$1.245"
+                            placeholder="145"
                             type="text"
                             className="my-products-add-page__input"
                             value={this.state.price}
@@ -98,6 +109,7 @@ export default class MyProductsAddPage extends Component {
                         >
                             <option>руб / лит.</option>
                             <option>руб / кг.</option>
+                            <option>руб / шт.</option>
                         </select>
                     </div>
                     <button className="my-products-add-page__add-button" onClick={this.handleAdd}>
