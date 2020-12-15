@@ -135,8 +135,10 @@ class ProductPage extends Component {
                 ></Advertising>
                 <div className="product__cost-row">
                     <div className="product__cost">
-                        <b>{data.price}</b>
-                        <span>{data.units}</span>
+                        <div className="product__cost_col">
+                            <b>{data.price}</b>
+                            <span>{data.units}</span>
+                        </div>
                         <InputCount
                             handleChangeCount={this.handleChangeCount}
                         ></InputCount>

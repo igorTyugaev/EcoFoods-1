@@ -21,7 +21,7 @@ main {
 
     &__cost-row {
         display: flex;
-        padding: 40px 20px 20px;
+        padding: 20px 20px 20px;
         width: 100%;
         justify-content: space-between;
         border-bottom: 1px solid #EBF0FF;
@@ -39,7 +39,7 @@ main {
             font-weight: normal;
             font-size: 28px;
             line-height: 100%;
-            max-width: 120px;
+            max-width: 160px;
 
             letter-spacing: 0.5px;
             overflow: scroll;
@@ -49,13 +49,22 @@ main {
         span {
             font-style: normal;
             font-weight: bold;
+            padding-top: 8px;
             font-size: 20px;
-            line-height: 200%;
+            line-height: 100%;
 
             letter-spacing: 0.5px;
 
             color: #27214D;
 
+        }
+
+        &_col{
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            justify-content: space-between;
+            align-content: flex-end;
         }
     }
 

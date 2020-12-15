@@ -4,14 +4,10 @@
     <list default="true" id="a16eb4bc-affe-4d25-8ecd-85b8900150be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/Categories.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/Categories.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Categories/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Categories/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProductsAddPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProductsAddPage/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MyProductsAddPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProductsAddPage/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Advertising/flickity.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Advertising/flickity.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Advertising/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Advertising/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProductPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/style.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingsList/SettingsList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsList/SettingsList.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingsLocation/SettingsLocation.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsLocation/SettingsLocation.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SettingsPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SettingsPage/index.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +52,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607956450359</updated>
       <workItem from="1607956453755" duration="15715000" />
-      <workItem from="1608004770183" duration="8404000" />
+      <workItem from="1608004770183" duration="10202000" />
     </task>
     <servers />
   </component>
