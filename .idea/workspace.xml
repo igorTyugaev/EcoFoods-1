@@ -2,8 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a16eb4bc-affe-4d25-8ecd-85b8900150be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrderDetails/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrderDetails/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrdersItem/OrdersItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrdersItem/OrdersItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrdersList/OrdersList.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrdersList/OrdersList.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/OrdersPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/OrdersPage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductItem/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductItem/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Products/Products.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Products/Products.jsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1607956450359</updated>
       <workItem from="1607956453755" duration="15715000" />
-      <workItem from="1608004770183" duration="800000" />
+      <workItem from="1608004770183" duration="4027000" />
     </task>
     <servers />
   </component>
@@ -66,7 +74,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="Dev" />
+                        <option value="master" />
                       </list>
                     </value>
                   </entry>
@@ -78,5 +86,8 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Update package.json" />
   </component>
 </project>

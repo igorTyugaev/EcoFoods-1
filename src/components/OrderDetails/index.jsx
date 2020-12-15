@@ -59,7 +59,7 @@ export default class OrderDetails extends Component {
                 <Header button={this.handleBack} title="Детали заказа"></Header>
                 <Products products={order.products}></Products>
                 <TableBlock
-                    staticItems={['Дата доставки', 'Продавец', 'Адрес']}
+                    staticItems={['Дата отгрузки', 'Продавец', 'Адрес', 'Способ доставки', 'Способ оплаты']}
                     dynamicItems={[
                         (order.date || 'Неизвестно'),
                         (order.products[0].product.merchant.first_name || 'Продавец') + ' ' + (order.products[0].product.merchant.last_name || 'Травы'),

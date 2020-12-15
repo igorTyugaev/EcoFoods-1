@@ -142,12 +142,8 @@ class ProductPage extends Component {
                         ></InputCount>
                     </div>
                 </div>
-                <h3 className="product__des-title">Description</h3>
-                <p className="product__des-main">{data.description}
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque dicta est et laudantium numquam
-                    reprehenderit vero. Est inventore nulla quia sit? Animi error exercitationem facere omnis similique
-                    sit tempore voluptates.
-                </p>
+                <h3 className="product__des-title">Описание</h3>
+                <p className="product__des-main">{data.description || 'Упс… Кажется, продавец не добавил описание товара('}</p>
                 <SettingsItem
                     img={locationImg}
                     title="Локация"
@@ -168,6 +164,7 @@ class ProductPage extends Component {
             <Preloader></Preloader>
         );
     }
+
 }
 
 

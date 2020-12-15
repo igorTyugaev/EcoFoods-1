@@ -1,16 +1,16 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import React, {Component} from 'react';
+import {Link} from 'react-router-dom';
 import './style.scss';
 
 export default class OrdersItem extends Component {
     render() {
         const {
             id,
-            date,
+            date,           // Почему-то сейчас не отображаеться
             orderAt,
             status,
-            deliveryDate,
-            location,
+            deliveryDate,   // Поменять на способ доставки
+            location,       // Убрать это поле
             items,
             price,
         } = this.props;
@@ -26,7 +26,7 @@ export default class OrdersItem extends Component {
                     <div className="orders-item__main">
                         <div className="orders-item__row">
                             <span className="orders-item__subtitle">
-                                Order at
+                               Продавец
                             </span>
                             <span className="orders-item__value">
                                 {orderAt}
@@ -34,32 +34,24 @@ export default class OrdersItem extends Component {
                         </div>
                         <div className="orders-item__row">
                             <span className="orders-item__subtitle">
-                                Order Status
+                                Статус заказа
                             </span>
                             <span className="orders-item__value">{status}</span>
                         </div>
                         <div className="orders-item__row">
                             <span className="orders-item__subtitle">
-                                Delivery date
+                                Способ доставки
                             </span>
                             <span className="orders-item__value">
                                 {deliveryDate}
                             </span>
                         </div>
                         <div className="orders-item__row">
-                            <span className="orders-item__subtitle">
-                                Location
-                            </span>
-                            <span className="orders-item__value">
-                                {location}
-                            </span>
-                        </div>
-                        <div className="orders-item__row">
-                            <span className="orders-item__subtitle">Items</span>
+                            <span className="orders-item__subtitle">Кол-во</span>
                             <span className="orders-item__value">{items}</span>
                         </div>
                         <div className="orders-item__row">
-                            <span className="orders-item__subtitle">Price</span>
+                            <span className="orders-item__subtitle">Итого</span>
                             <span className="orders-item__value orders-item__value_green">
                                 {price}
                             </span>
