@@ -64,6 +64,7 @@ export default class OrdersList extends Component {
 
     render() {
         const {orders, loaded} = this.state;
+        console.log(orders)
         return loaded ? (
             <ul className="orders__list">
                 {orders.map((item) => <OrdersItem key={item.uuid}
@@ -72,7 +73,7 @@ export default class OrdersList extends Component {
                                                   location={item.products[0].product.merchant.address || 'Уточняется у продавца'}
                                                   deliveryDate={item.deliveryDate || 'Неизвестно'}
                                                   status={item.status === 'opened' ? 'открыт' : 'завершён'}
-                                                  orderAt={(item.products[0].product.merchant.first_name || 'Продавец') + ' ' + (item.products[0].product.merchant.last_name || 'Травы')}
+                                                  orderAt={(item.products[0].product.merchant.first_name || 'Имя') + ' ' + (item.products[0].product.merchant.last_name || 'Фамилия')}
                                                   date={item.date || 'DD.MM.YY'}
                                                   id={item.uuid}></OrdersItem>)}
             </ul>
