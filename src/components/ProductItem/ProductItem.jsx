@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import './style.scss';
 
 export default class ProductItem extends Component {
     render() {
-        const { img, title, location, price, quantity } = this.props;
+        const {img, title, location, price, quantity} = this.props;
         return (
             <li className="product-item">
-                <img src={img} alt="" className="product-item__img" />
+                <img src={img} alt="" className="product-item__img"/>
                 <div className="product-item__main">
                     <div className="product-item__row">
                         <div className="product-item__text">

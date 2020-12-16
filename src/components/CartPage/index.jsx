@@ -5,7 +5,7 @@ import MyProductItem from '../MyProductItem';
 import img from './img/1.jpg';
 import BuyBlock from '../BuyBlock';
 import {connect} from 'react-redux';
-import { removeItem, changeItemCount } from '../../store/actionCreators/cartActionCreators';
+import {removeItem, changeItemCount} from '../../store/actionCreators/cartActionCreators';
 
 
 const mapStateToProps = (state, ownProps) => {
@@ -18,6 +18,7 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = dispatch => ({
     removeItem: (uuid) => dispatch(removeItem(uuid)),
     changeItemCount: (uuid, newCount) => dispatch(changeItemCount(uuid, newCount)),
+
 });
 
 class CartPage extends Component {
@@ -25,7 +26,7 @@ class CartPage extends Component {
         super(props);
         this.state = {
             isBought: false,
-            value: 0,
+            // value: 0,
             productList: [
                 {
                     img,
@@ -37,19 +38,6 @@ class CartPage extends Component {
             ],
         };
     }
-
-    componentDidMount() {
-        const {productList} = this.props;
-        const value = productList.reduce(
-            (accumulator, currentValue) => {
-                return accumulator + Number(currentValue.data.price) * Number(currentValue.quantity);
-            }
-            , 0);
-        this.setState({
-            value: value,
-        });
-    }
-    
 
     handleDelete = (uuid) => {
         this.props.removeItem(uuid);
@@ -67,8 +55,14 @@ class CartPage extends Component {
     };
 
     render() {
-        const {value, isBought} = this.state;
+        const {isBought} = this.state;
         const {productList} = this.props;
+        const value = productList.reduce((accumulator, currentValue) => {
+            return (
+                accumulator +
+                Number(currentValue.data.price) * Number(currentValue.quantity)
+            );
+        }, 0);
         return (
             <>
                 {isBought && <Redirect push to="/cart/delivery"/>}
