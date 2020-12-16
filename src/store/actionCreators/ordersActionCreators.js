@@ -1,5 +1,4 @@
 import axios from 'axios';
-import { act } from 'react-dom/test-utils';
 import actions from '../actions/ordersActions';
 
 export function getOrdersSuccess(data) {

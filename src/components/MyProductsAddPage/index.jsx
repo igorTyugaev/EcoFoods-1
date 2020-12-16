@@ -18,7 +18,7 @@ export default class MyProductsAddPage extends Component {
             category:'',
             description:'',
             price:'',
-            units:'',
+            units:'руб / лит.',
         }
     }
     handleBack = () => {

@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import Rating from '../Rating';
 import Avatar from '../Avatar';
 import './style.scss';
+import { connect } from 'react-redux';
 
-export default class Profile extends Component {
+const mapStateToProps = (state, ownProps) => ({
+    user: state.user.value,
+});
+
+class Profile extends Component {
     render() {
         const avatar = undefined;
+        const {last_name, first_name} = this.props.user;
+        console.log(this.props.user);
         return (
             <div className="profile__wrapper">
                 <div className="profile">
@@ -13,7 +20,7 @@ export default class Profile extends Component {
                         <Avatar></Avatar>
                     </div>
                     <div className="profile__desc">
-                        <b>Nikita Koltashov</b>
+                        <b>{`${first_name} ${last_name}`}</b>
                         <span>jenkinstix@gmail.com</span>
                         {/*<Rating value={4.4}></Rating>*/}
                     </div>
@@ -22,3 +29,5 @@ export default class Profile extends Component {
         );
     }
 }
+
+export default connect(mapStateToProps)(Profile);

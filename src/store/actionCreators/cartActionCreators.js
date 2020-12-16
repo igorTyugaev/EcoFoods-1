@@ -1,3 +1,4 @@
+import axios from "axios";
 import actions from "../actions/cartActions";
 
 
@@ -23,6 +24,33 @@ export function changeItemCount(uuid, newCount) {
             quantity: newCount,
         }
     }
+}
+
+
+export function formOrders() {
+    return (dispatch, state, { url }) => {
+        const cart = Object.values(state.cart.value);
+        const orders = cart.reduce((acc, next) => {
+            if (next.data.merchant.uuid) {
+                if (next.data.merchant.uuid in acc) {
+                    acc[next.data.merchant.uuid].push(next);
+                } else {
+                    acc[next.data.merchant.uuid] = [];
+                }
+            } else {
+                const alternativeUniqueIdInTheory = `${next.data.merchant.first_name} ${next.data.merchant.last_name}`;
+                if (alternativeUniqueIdInTheory in acc) {
+                    acc[alternativeUniqueIdInTheory].push(next);
+                } else {
+                    acc[alternativeUniqueIdInTheory] = [];
+                }
+            }
+            return acc;
+        }, {});
+        const promises = orders.map(o => axios.post(url + 'create_order/', {
+            
+        }));
+    };
 }
 
 export function restoreCart(cart) {

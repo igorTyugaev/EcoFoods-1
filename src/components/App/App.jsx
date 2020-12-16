@@ -9,6 +9,7 @@ import { Route, Switch } from 'react-router-dom';
 import { register, login } from '../../store/actionCreators/tokenActionCreators';
 import { getUserInfo, setUserInfo, changeRole } from '../../store/actionCreators/usersActionCreators';
 import { connect } from 'react-redux';
+import SettingsUsername from '../SettingsUsername';
 
 const mapStateToProps = (state, ownProps) => {
     return {
@@ -16,6 +17,7 @@ const mapStateToProps = (state, ownProps) => {
         token: state.token.value,
         isReg: !!state.token.value,
         role: state.user.value.role,
+        hasName: state.user.value.first_name && state.user.value.last_name,
     };
 };
 
@@ -61,14 +63,14 @@ class App extends Component {
     };
 
     render() {
-        const { isLoad, isReg, role } = this.props;
+        const { isLoad, isReg, role, hasName, setUserInfo } = this.props;
         console.log(this.props);
         return (
             <>
                 {isLoad && (
                     <BrowserRouter>
-                        {role && isReg && <Main role={role}></Main>}
-                        {role && isReg && (
+                        {role && isReg && hasName && <Main role={role}></Main>}
+                        {role && isReg && hasName && (
                             <Switch>
                                 <Route
                                     exact
@@ -144,6 +146,13 @@ class App extends Component {
                                 />
                             </Switch>
                         )}
+                        {isReg && role && !hasName && (
+                            <SettingsUsername
+                                handleChangeName={(firstName, lastName) => setUserInfo({
+                                    first_name: firstName,
+                                    last_name: lastName,
+                                })}>  
+                            </SettingsUsername>)}
                         {isReg && !role && (
                             <RoleSelectorPage
                                 handleChangeRole={this.handleChangeRole}
