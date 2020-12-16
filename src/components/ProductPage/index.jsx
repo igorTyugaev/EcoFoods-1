@@ -125,6 +125,9 @@ class ProductPage extends Component {
 
     render() {
         const {value, data, loaded} = this.state;
+        console.log('data')
+        console.log(data)
+        console.log('data')
         return loaded ? (
             <>
                 <Header

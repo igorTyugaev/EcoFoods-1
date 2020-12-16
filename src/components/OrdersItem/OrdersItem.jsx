@@ -53,7 +53,7 @@ export default class OrdersItem extends Component {
                         <div className="orders-item__row">
                             <span className="orders-item__subtitle">Итого</span>
                             <span className="orders-item__value orders-item__value_green">
-                                {price}
+                                ₽{price}
                             </span>
                         </div>
                     </div>
