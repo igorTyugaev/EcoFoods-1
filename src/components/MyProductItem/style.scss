@@ -4,12 +4,24 @@
   width: 100%;
 
   &__row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     width: 100%;
+
     &-container {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       align-items: flex-end;
+    }
+
+    &-price {
+      font-size: 18px;
+    }
+
+    &-units {
+      font-size: 14px;
     }
   }
 
@@ -66,6 +78,10 @@
       font-size: 12px;
       line-height: 150%;
       letter-spacing: 0.5px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: pre;
+      max-width: 42vw;
 
       color: #9098B1;
     }
@@ -73,7 +89,6 @@
     span {
       font-style: normal;
       font-weight: normal;
-      font-size: 18px;
       line-height: 150%;
       letter-spacing: 0.5px;
 

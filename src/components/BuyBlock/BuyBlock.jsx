@@ -16,7 +16,7 @@ export default class BuyBlock extends Component {
                     <>
                         <div className="buy-block__price">
                             <b className="">Итого:</b>
-                            <span className="">{total}</span>
+                            <span className="">₽{total}</span>
                         </div>
                         <button
                             onClick={() => this.handleBuy()}

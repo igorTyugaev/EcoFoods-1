@@ -3,13 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="a16eb4bc-affe-4d25-8ecd-85b8900150be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CartPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CartPage/index.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductItem/ProductItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductItem/ProductItem.jsx" afterDir="false" />
-    </list>
-    <list id="b850926f-0547-4641-bcfc-cc2cac7d5275" name="Revert &quot;Fix: Removed scroll price&quot;" comment="Revert &quot;Fix: Removed scroll price&quot;&#10;&#10;This reverts commit 2554e982">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ProductPage/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductPage/style.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/BuyBlock/BuyBlock.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/BuyBlock/BuyBlock.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/CartPage/index.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CartPage/index.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProductItem/MyProductItem.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProductItem/MyProductItem.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MyProductItem/style.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MyProductItem/style.scss" afterDir="false" />
     </list>
+    <list id="b850926f-0547-4641-bcfc-cc2cac7d5275" name="Revert &quot;Fix: Removed scroll price&quot;" comment="Revert &quot;Fix: Removed scroll price&quot;&#10;&#10;This reverts commit 2554e982" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -61,7 +61,7 @@
       <updated>1607956450359</updated>
       <workItem from="1607956453755" duration="15715000" />
       <workItem from="1608004770183" duration="11773000" />
-      <workItem from="1608109469368" duration="3811000" />
+      <workItem from="1608109469368" duration="7867000" />
     </task>
     <servers />
   </component>

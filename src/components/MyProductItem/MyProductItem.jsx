@@ -12,8 +12,9 @@ export default class MyProductItem extends Component {
             value: props.quantity || 1,
         };
     }
+
     handleChangeCount = (count) => {
-        const { handleChangeCount, id } = this.props;
+        const {handleChangeCount, id} = this.props;
         if (handleChangeCount) {
             handleChangeCount(id, count);
         }
@@ -24,7 +25,10 @@ export default class MyProductItem extends Component {
 
     render() {
         const {value} = this.state;
-        const {img, title, text, price, disableCount = false, canEdit = true, id='', handleDelete = (uuid) => {},} = this.props;
+        const {
+            img, title, text, price, units, disableCount = false, canEdit = true, id = '', handleDelete = (uuid) => {
+            },
+        } = this.props;
         return (
             <li className="my-product-item">
                 <div className="my-product-item-container">
@@ -34,11 +38,12 @@ export default class MyProductItem extends Component {
                             <div className="my-product-item__row">
                                 <div className="my-product-item__text">
                                     <h3>{title}</h3>
-                                    <p>От: {text}</p>
+                                    <p>{text}</p>
                                 </div>
                             </div>
                             <div className="my-product-item__row">
-                                <span>{price}</span>
+                                <span className="my-product-item__row-price">{price}</span>
+                                <span className="my-product-item__row-units">{units}</span>
                             </div>
                         </div>
                     </div>
@@ -47,11 +52,11 @@ export default class MyProductItem extends Component {
                             {canEdit && <img src={edit} alt=""/>}
                             <img onClick={() => handleDelete(id)} src={trash} alt=""/>
                         </div>
-                        { !disableCount && 
-                            <InputCount
-                                handleChangeCount={this.handleChangeCount}
-                                value={value}
-                            ></InputCount> }
+                        {!disableCount &&
+                        <InputCount
+                            handleChangeCount={this.handleChangeCount}
+                            value={value}
+                        ></InputCount>}
                     </div>
                 </div>
                 <hr/>

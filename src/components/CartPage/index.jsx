@@ -63,6 +63,11 @@ class CartPage extends Component {
                 Number(currentValue.data.price) * Number(currentValue.quantity)
             );
         }, 0);
+        console.log('productList')
+        console.log('productList')
+        console.log(productList)
+        console.log('productList')
+        console.log('productList')
         return (
             <>
                 {isBought && <Redirect push to="/cart/delivery"/>}
@@ -73,11 +78,11 @@ class CartPage extends Component {
                         id={item.uuid}
                         img={img}
                         title={item.data.name}
-                        text={item.data.merchant.address}
+                        text={item.data.merchant.first_name + ' ' + item.data.merchant.last_name || 'Продавец не указан'}
                         handleDelete={this.handleDelete}
                         handleChangeCount={this.handleChangeCount}
-                        // price={`${item.data.price}x${item.quantity}`}
                         price={item.data.price}
+                        units={item.data.units}
                         quantity={item.quantity}
                         canEdit={false}
                     ></MyProductItem>
@@ -90,7 +95,6 @@ class CartPage extends Component {
             </>
         );
     }
-
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CartPage);
