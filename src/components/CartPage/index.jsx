@@ -63,11 +63,6 @@ class CartPage extends Component {
                 Number(currentValue.data.price) * Number(currentValue.quantity)
             );
         }, 0);
-        console.log('productList')
-        console.log('productList')
-        console.log(productList)
-        console.log('productList')
-        console.log('productList')
         return (
             <>
                 {isBought && <Redirect push to="/cart/delivery"/>}
