@@ -21,8 +21,9 @@ export default function cart(state = initialState, action) {
             return {
                 ...state,
                 value: newValue,
-            }
+            };
         case actions.CART_RESTORE:
+            localStorage.setItem('cart', JSON.stringify(action.value));
             return {
                 ...state,
                 value: action.value,
@@ -33,13 +34,31 @@ export default function cart(state = initialState, action) {
             return {
                 ...state,
                 value: newValue,
-            }
+            };
         case actions.CART_REMOVE_ITEM:
             delete newValue[action.value.uuid];
             localStorage.setItem('cart', JSON.stringify(newValue));
             return {
                 ...state,
                 value: newValue,
+            };
+        case actions.CART_START: 
+            return {
+                ...state,
+                error: null,
+                loaded: false,
+            };
+        case actions.CART_SUCCESS:
+            return {
+                ...state,
+                error: null,
+                loaded: true,
+            }
+        case actions.CART_FAILURE:
+            return {
+                ...state,
+                error: action.value,
+                loaded: true,
             }
         default:
             return state;       

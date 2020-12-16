@@ -5,8 +5,14 @@ import bank from './img/bank.svg';
 import card from './img/card.svg';
 import { Link } from 'react-router-dom';
 import './style.scss';
+import { connect } from 'react-redux';
+import { formOrdersFromCartWithDelivery } from '../../store/actionCreators/cartActionCreators';
 
-export default class PaymentPage extends Component {
+const mapDispatchToProps = (dispatch) => ({
+    formOrdersFromCartWithDelivery: () => dispatch(formOrdersFromCartWithDelivery()),
+});
+
+class PaymentPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,7 +85,7 @@ export default class PaymentPage extends Component {
                     </div>
                     {progress === 3 && (
                         <Link to="/">
-                            <button className="payment__button">
+                            <button onClick={this.props.formOrdersFromCartWithDelivery}className="payment__button">
                                 Перейти к оплате
                             </button>
                         </Link>
@@ -89,3 +95,5 @@ export default class PaymentPage extends Component {
         );
     }
 }
+
+export default connect(null, mapDispatchToProps)(PaymentPage);
