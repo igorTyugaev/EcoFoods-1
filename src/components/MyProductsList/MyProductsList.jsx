@@ -24,7 +24,7 @@ const myProducts = [
         id: 2,
     },
 ];
-let con = 0
+
 export default class MyProductsList extends Component {
     constructor(props) {
         super(props);
@@ -42,8 +42,8 @@ export default class MyProductsList extends Component {
 
     render() {
         const {myProducts} = this.state;
-        con += 1
-        console.log('myProducts: ', con)
+
+        console.log('myProducts: ')
         console.log(myProducts)
         console.log('- - - - -- -')
         return (

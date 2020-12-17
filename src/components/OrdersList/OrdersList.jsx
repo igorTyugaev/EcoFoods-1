@@ -51,7 +51,6 @@ export default class OrdersList extends Component {
     }
 
     componentDidMount() {
-        // const url = URL + 'api/get_orders/?$name=\'e5170cb3-131c-42f6-b559-bb1643ce1904\'';
         const url = URL + 'api/get_orders/';
         const config = MakeConfig(token.get());
         console.log('config: ', config);

@@ -9,7 +9,8 @@ import URL from '../../utils/url';
 import token from '../../utils/token';
 import MakeConfig from '../../utils/AxiosConfig';
 import Preloader from '../PreloaderMain';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
+import './style.scss';
 
 const products = [
     {
@@ -59,22 +60,57 @@ class OrderDetails extends Component {
         window.history.back();
     };
 
+    handleCloseDeal = () => {
+        const url = URL + 'api/update_order_status/';
+        const config = MakeConfig(token.get());
+        axios.patch(url,
+            {uuid: this.state.orderId, status: 'closed'}, config);
+    };
+
     render() {
         const {loaded, order} = this.state;
-        const { role } = this.props;
+        const {role} = this.props;
         return loaded ? (
             <>
                 <Header button={this.handleBack} title="Детали заказа"></Header>
                 <Products products={order.products}></Products>
-                <TableBlock
-                    staticItems={['Дата отгрузки', 'Продавец', 'Адрес', 'Способ доставки', 'Способ оплаты']}
-                    dynamicItems={[
-                        (order.date || 'Неизвестно'),
-                        (order.products[0].product.merchant.first_name || 'Продавец') + ' ' + (order.products[0].product.merchant.last_name || 'Травы'),
-                        (order.products[0].product.merchant.address || 'Уточняется у продавца'),
-                    ]}
-                    title="Детали доставки"
-                ></TableBlock>
+                {role === 'buyer' && (
+                    <TableBlock
+                        staticItems={['Дата отгрузки', 'Продавец', 'Адрес', 'Способ доставки', 'Способ оплаты']}
+                        dynamicItems={[
+                            (order.date || 'Неизвестно'),
+                            (order.products[0].product.merchant.first_name || 'Имя') + ' ' + (order.products[0].product.merchant.last_name || 'Фамилия'),
+                            (order.products[0].product.merchant.address || 'Уточняется у продавца'),
+                        ]}
+                        title="Детали доставки"
+                    ></TableBlock>
+                )}
+
+                {role === 'seller' && (
+                    <TableBlock
+                        staticItems={['Дата отгрузки', 'Покупатель', 'Адрес', 'Способ доставки', 'Способ оплаты']}
+                        dynamicItems={[
+                            (order.date || 'Неизвестно'),
+                            (order.products[0].product.merchant.first_name || 'Имя') + ' ' + (order.products[0].product.merchant.last_name || 'Фамилия'),
+                            (order.products[0].product.merchant.address || 'Уточняется у покупателя'),
+                            ('Самовывоз'),
+                            ('Наличные'),
+                        ]}
+                        title="Детали доставки"
+                    ></TableBlock>)}
+
+                {order.status === 'opened' && role === 'seller' && (
+                    <button className="order-details__button" onClick={this.handleCloseDeal}>
+                        Закрыть сделку
+                    </button>
+                )}
+
+                {order.status === 'closed' && role === 'seller' && (
+                    <button className="order-details__button order-details__button-closed" disabled="disabled">
+                        Сделка закрыта
+                    </button>
+                )}
+
             </>
         ) : <Preloader></Preloader>;
     }
