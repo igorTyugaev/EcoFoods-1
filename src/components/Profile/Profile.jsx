@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 class Profile extends Component {
     render() {
         const avatar = undefined;
-        const {last_name, first_name} = this.props.user;
+        const {last_name, first_name, email} = this.props.user;
         console.log(this.props.user);
         return (
             <div className="profile__wrapper">
@@ -21,7 +21,7 @@ class Profile extends Component {
                     </div>
                     <div className="profile__desc">
                         <b>{`${first_name} ${last_name}`}</b>
-                        <span>jenkinstix@gmail.com</span>
+                        <span>{email}</span>
                         {/*<Rating value={4.4}></Rating>*/}
                     </div>
                 </div>
