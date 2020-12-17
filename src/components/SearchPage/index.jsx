@@ -84,6 +84,8 @@ export default class SearchPage extends Component {
             advertisings: [],
             announcements: [],
             searchValue: '',
+            searchAnswer: [],
+            makeSearch: false,
         };
     }
 
@@ -110,19 +112,28 @@ export default class SearchPage extends Component {
     handleSearchChange = (e) => {
         this.setState({
             searchValue: e.target.value,
+            makeSearch: false,
         });
     };
     handleSearchSend = (e) => {
         e.preventDefault();
-        console.log('handleSearchSend', e);
+        axios
+            .get(URL + `api/search_product?name=${this.state.searchValue}`)
+            .then(resp => this.setState({
+                makeSearch: true,
+                searchAnswer: resp.data,
+            }))
+            .catch(err => console.log(err));
+        
     };
     handleSearchcancel = () => {
         this.setState({
             searchValue: '',
+            makeSearch: false,
         });
     };
     render() {
-        const { advertisings, announcements, searchValue } = this.state;
+        const { advertisings, announcements, searchValue, makeSearch, searchAnswer } = this.state;
         return (
             <>
                 <Search
@@ -130,7 +141,7 @@ export default class SearchPage extends Component {
                     handleSearchChange={this.handleSearchChange}
                     searchValue={searchValue}
                 ></Search>
-                {!searchValue && (
+                {!makeSearch && (
                     <>
                         <Advertising
                             url="/product"
@@ -141,13 +152,13 @@ export default class SearchPage extends Component {
                 )}
                 <AdsList
                     title={
-                        !searchValue
+                        !makeSearch
                             ? 'Рекомендации'
-                            : `Найдено ${announcements.length} позиций:`
+                            : `Найдено ${searchAnswer.length} позиций:`
                     }
-                    announcements={announcements}
+                    announcements={makeSearch ? searchAnswer : announcements}
                 ></AdsList>
-                {announcements.length === 0 && searchValue && (
+                {searchAnswer.length === 0 && makeSearch && (
                     <NotFound
                         title="Товар не найден"
                         desc="Спасибо за покупки с помощью EcoFoods"
