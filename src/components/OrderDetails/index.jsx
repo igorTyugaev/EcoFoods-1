@@ -9,6 +9,7 @@ import URL from '../../utils/url';
 import token from '../../utils/token';
 import MakeConfig from '../../utils/AxiosConfig';
 import Preloader from '../PreloaderMain';
+import { connect } from 'react-redux';
 
 const products = [
     {
@@ -29,7 +30,11 @@ const products = [
     },
 ];
 
-export default class OrderDetails extends Component {
+const mapStateToProps = (state, ownProps) => ({
+    role: state.user.value.role,
+});
+
+class OrderDetails extends Component {
     constructor(props) {
         super(props);
         const match = props.match;
@@ -56,6 +61,7 @@ export default class OrderDetails extends Component {
 
     render() {
         const {loaded, order} = this.state;
+        const { role } = this.props;
         return loaded ? (
             <>
                 <Header button={this.handleBack} title="Детали заказа"></Header>
@@ -73,3 +79,5 @@ export default class OrderDetails extends Component {
         ) : <Preloader></Preloader>;
     }
 }
+
+export default connect(mapStateToProps)(OrderDetails);
