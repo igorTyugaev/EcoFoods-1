@@ -44,7 +44,7 @@ class SettingsList extends Component {
                     <SettingsItem
                         img={telephoneImg}
                         title="Телефон"
-                        text={userInfo.phone || 'Номер не указан'}
+                        text={userInfo.phone_number || 'Номер не указан'}
                     ></SettingsItem>
                 </Link>
                 {/*<Link to="/personalArea/settings">*/}

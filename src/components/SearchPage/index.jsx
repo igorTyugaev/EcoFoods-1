@@ -118,7 +118,7 @@ export default class SearchPage extends Component {
     handleSearchSend = (e) => {
         e.preventDefault();
         axios
-            .get(URL + `api/search_product?name=${this.state.searchValue}`)
+            .get(URL + `api/search_product?search=${this.state.searchValue}`)
             .then(resp => this.setState({
                 makeSearch: true,
                 searchAnswer: resp.data,
