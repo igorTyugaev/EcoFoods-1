@@ -22,6 +22,8 @@ import Preloader from '../PreloaderMain';
 import {addItemToCart, restoreCart} from '../../store/actionCreators/cartActionCreators'
 import {connect} from 'react-redux';
 import cart from '../../store/reducers/cart';
+import telephoneImg from "../SettingsList/telephone.svg";
+import {Link} from "react-router-dom";
 
 const defaultData = {
     advertisings: [
@@ -160,6 +162,13 @@ class ProductPage extends Component {
                     title="Продавец"
                     text="@farmer_galaxy"
                 ></SettingsItem>
+                <a href={data.merchant.phone_number || ''}>
+                    <SettingsItem
+                        img={telephoneImg}
+                        title="Телефон"
+                        text={data.merchant.phone_number || 'Номер не указан'}
+                    ></SettingsItem>
+                </a>
                 <BuyBlock
                     isBought={this.state.isBought}
                     total={value}

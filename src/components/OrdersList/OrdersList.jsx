@@ -51,11 +51,15 @@ export default class OrdersList extends Component {
     }
 
     componentDidMount() {
+        // const url = URL + 'api/get_orders/?$name=\'e5170cb3-131c-42f6-b559-bb1643ce1904\'';
         const url = URL + 'api/get_orders/';
         const config = MakeConfig(token.get());
+        console.log('config: ', config);
         axios.get(url, config)
             .then(resp => {
+                console.log('Data from:', url);
                 console.log(resp.data);
+                console.log('- - - - - - - - -');
                 this.setState({loaded: true, orders: resp.data})
             })
             .catch(err => console.error(err));
@@ -64,12 +68,11 @@ export default class OrdersList extends Component {
 
     render() {
         const {orders, loaded} = this.state;
-        console.log(orders)
         return loaded ? (
             <ul className="orders__list">
                 {orders.map((item) => <OrdersItem key={item.uuid}
                                                   price={parseInt(item.products[0].product.price) * parseInt(item.products[0].quantity)}
-                                                  items={`${item.products.length} наим.`}
+                                                  items={`${item.products[0].quantity}  шт. куплено`}
                                                   location={item.products[0].product.merchant.address || 'Уточняется у продавца'}
                                                   deliveryDate={item.deliveryDate || 'Неизвестно'}
                                                   status={item.status === 'opened' ? 'открыт' : 'завершён'}
