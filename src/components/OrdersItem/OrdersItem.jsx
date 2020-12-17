@@ -6,11 +6,11 @@ export default class OrdersItem extends Component {
     render() {
         const {
             id,
-            date,           // Почему-то сейчас не отображаеться
+            date,
             orderAt,
             status,
-            deliveryDate,   // Поменять на способ доставки
-            location,       // Убрать это поле
+            deliveryDate,
+            location,
             items,
             price,
         } = this.props;

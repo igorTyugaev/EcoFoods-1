@@ -1,0 +1,28 @@
+.order-details {
+
+  &__button {
+    width: calc(100% - 32px);
+    height: 57px;
+    background: #1DDE7D;
+    margin: 16px;
+
+    box-shadow: 0px 10px 30px rgba(64, 191, 255, 0.24);
+    border-radius: 5px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 180%;
+
+    text-align: center;
+    letter-spacing: 0.5px;
+    color: #FFFFFF;
+
+    &-closed {
+      background: #FFFFFF;
+      color: #223263;
+      box-shadow: none;
+      text-transform: uppercase;
+      border: 1px solid #EBF0FF;
+    }
+  }
+}
