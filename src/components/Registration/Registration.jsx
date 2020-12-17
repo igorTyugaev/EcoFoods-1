@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './style.scss';
 
@@ -13,13 +13,14 @@ export default class Registration extends Component {
             reg: false,
         };
     }
+
     handleChange = (e) => {
-        this.setState({ [e.target.name]: e.target.value });
+        this.setState({[e.target.name]: e.target.value});
     };
     handleSubmit = (e) => {
         e.preventDefault();
-        const { handleAuth } = this.props;
-        const { email, password, subPassword, reg } = this.state;
+        const {handleAuth} = this.props;
+        const {email, password, subPassword, reg} = this.state;
         if (email && password) {
             if (reg) {
                 if (password === subPassword) {
@@ -50,16 +51,23 @@ export default class Registration extends Component {
             reg: true,
         });
     };
+
     render() {
-        const { email, password, subPassword, error, reg } = this.state;
+        const {email, password, subPassword, error, reg} = this.state;
         return (
             <div className="registration">
-                <img src={logo} alt="" className="logo" />
-                <h2 className="registration__title">Welcome to EcoFoods</h2>
+                <img src={logo} alt="" className="logo"/>
                 {reg ? (
-                    <span>Create an new account</span>
+                    <h2 className="registration__title">Давайте начнем!</h2>
+
                 ) : (
-                    <span>Sign in to continue</span>
+                    <h2 className="registration__title">Добро пожаловать в EcoFoods!</h2>
+                )}
+
+                {reg ? (
+                    <span>Создать новый аккаунт</span>
+                ) : (
+                    <span>Войдите, чтобы продолжить</span>
                 )}
                 <form
                     onSubmit={(e) => this.handleSubmit(e)}
@@ -194,25 +202,25 @@ export default class Registration extends Component {
                         </div>
                     )}
 
-                    {reg ? <button>Sign Up</button> : <button>Sign In</button>}
+                    {reg ? <button>Зарегистрироваться</button> : <button>Войти в систему</button>}
                 </form>
                 {!reg && (
                     <a href="/" className="registration__a">
-                        Forgot Password?
+                        Забыл пароль?
                     </a>
                 )}
                 {reg ? (
                     <span>
-                        Have a account?{' '}
+                        Есть аккаунт?{' '}
                         <a href="/" onClick={(e) => this.handleChangeSignIn(e)}>
-                            Sign In
+                            Войти
                         </a>
                     </span>
                 ) : (
                     <span>
-                        Don’t have a account?
+                        Нет учетной записи?{' '}
                         <a href="/" onClick={(e) => this.handleChangeSignUp(e)}>
-                            Register
+                            Регистрация
                         </a>
                     </span>
                 )}
