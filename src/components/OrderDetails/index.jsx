@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from '../Header';
 import Products from '../Products';
 import TableBlock from '../TableBlock';
@@ -41,10 +41,12 @@ export default class OrderDetails extends Component {
     }
 
     componentDidMount() {
-        const url = URL+ 'api/get_orders/';
+        const url = URL + 'api/get_orders/';
         const config = MakeConfig(token.get());
         axios.get(url, config)
-            .then(resp => {console.log(this.state.orderId);this.setState({loaded: true, order: resp.data.filter(a => a.uuid === this.state.orderId)[0]})})
+            .then(resp => {
+                this.setState({loaded: true, order: resp.data.filter(a => a.uuid === this.state.orderId)[0]})
+            })
             .catch(err => console.error(err));
     }
 

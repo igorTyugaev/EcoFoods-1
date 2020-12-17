@@ -19,7 +19,7 @@ export default class OrdersItem extends Component {
                 <Link to={`/orders/item/${id}`}>
                     <div className="orders-item__header">
                         <div className="orders-item__row">
-                            <h3 className="orders-item__id">{id}</h3>
+                            <h3 className="orders-item__id">{id.slice(0, 23)}</h3>
                             <span className="orders-item__date">{date}</span>
                         </div>
                     </div>
