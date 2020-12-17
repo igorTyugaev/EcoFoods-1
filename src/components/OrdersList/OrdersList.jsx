@@ -69,12 +69,12 @@ export default class OrdersList extends Component {
             <ul className="orders__list">
                 {orders.map((item) => <OrdersItem key={item.uuid}
                                                   price={parseInt(item.products[0].product.price) * parseInt(item.products[0].quantity)}
-                                                  items={`${item.products[0].quantity} шт.`}
+                                                  items={`${item.products.length} наим.`}
                                                   location={item.products[0].product.merchant.address || 'Уточняется у продавца'}
                                                   deliveryDate={item.deliveryDate || 'Неизвестно'}
                                                   status={item.status === 'opened' ? 'открыт' : 'завершён'}
                                                   orderAt={(item.products[0].product.merchant.first_name || 'Имя') + ' ' + (item.products[0].product.merchant.last_name || 'Фамилия')}
-                                                  date={item.date || 'DD.MM.YY'}
+                                                  date={item.created_at.substring(0, 10) || 'DD.MM.YY'}
                                                   id={item.uuid}></OrdersItem>)}
             </ul>
         ) : <Preloader></Preloader>;
