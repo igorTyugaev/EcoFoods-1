@@ -138,7 +138,7 @@ class ProductPage extends Component {
                 ></Header>
                 <Advertising
                     advertisings={data.images.map(i => ({
-                        img: 'data:image/jpeg;base64,' + i.image.image || img1,
+                        img: i.image.image ? 'data:image/jpeg;base64,' + i.image.image : img1,
                         id: i.image.uuid
                     }))}
                 ></Advertising>
