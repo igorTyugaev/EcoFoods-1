@@ -6,6 +6,7 @@ import axios from 'axios';
 import URL from '../../utils/url'
 import MakeConfig from '../../utils/AxiosConfig';
 import token from '../../utils/token'
+import {Link} from "react-router-dom";
 
 const imgs = [img, img, img, img, img, img];
 
@@ -94,7 +95,9 @@ export default class MyProductsAddPage extends Component {
                         {imgs.map((item, index) => (
                             <img src={item} key={index} alt=""></img>
                         ))}
-                        <button>+</button>
+                        <Link className="buy-block__button_active" to="/image-picker">
+                            <button>+</button>
+                        </Link>
                     </div>
                     <h2 className="my-products-add-page__title">
                         Назначить цену

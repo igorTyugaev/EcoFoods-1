@@ -12,6 +12,7 @@ import CartPage from '../CartPage';
 import DeliveryPage from '../DeliveryPage';
 import PaymentPage from '../PaymentPage';
 import SettingsPage from '../SettingsPage';
+import ImagePicker from '../ImagePicker';
 import './style.css';
 
 export default class Main extends Component {
@@ -119,6 +120,11 @@ export default class Main extends Component {
                         <Route
                             path="/personalArea"
                             render={() => <PersonalAreaPage></PersonalAreaPage>}
+                        />
+                        <Route
+                            exact
+                            path="/image-picker"
+                            render={() => <ImagePicker></ImagePicker>}
                         />
                         <Route render={() => <span>404</span>} />
                     </Switch>

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React, {Component} from 'react';
+import {BrowserRouter} from 'react-router-dom';
 import NavMenu from '../NavMenu';
 import Main from '../Main';
 import Registration from '../Registration';
 import PreloaderMain from '../PreloaderMain';
 import RoleSelectorPage from '../RoleSelectorPage';
-import { Route, Switch } from 'react-router-dom';
-import { register, login } from '../../store/actionCreators/tokenActionCreators';
-import { getUserInfo, setUserInfo, changeRole } from '../../store/actionCreators/usersActionCreators';
-import { connect } from 'react-redux';
+import {Route, Switch} from 'react-router-dom';
+import {register, login} from '../../store/actionCreators/tokenActionCreators';
+import {getUserInfo, setUserInfo, changeRole} from '../../store/actionCreators/usersActionCreators';
+import {connect} from 'react-redux';
 import SettingsUsername from '../SettingsUsername';
 
 const mapStateToProps = (state, ownProps) => {
@@ -63,7 +63,7 @@ class App extends Component {
     };
 
     render() {
-        const { isLoad, isReg, role, hasName, setUserInfo } = this.props;
+        const {isLoad, isReg, role, hasName, setUserInfo} = this.props;
         console.log(this.props);
         return (
             <>
@@ -151,7 +151,7 @@ class App extends Component {
                                 handleChangeName={(firstName, lastName) => setUserInfo({
                                     first_name: firstName,
                                     last_name: lastName,
-                                })}>  
+                                })}>
                             </SettingsUsername>)}
                         {isReg && !role && (
                             <RoleSelectorPage
