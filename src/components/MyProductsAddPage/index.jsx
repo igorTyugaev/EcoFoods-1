@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import Header from '../Header';
 import './style.scss';
 import img from './1.jpg';
@@ -15,29 +15,51 @@ export default class MyProductsAddPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name:'',
-            category:'',
-            description:'',
-            price:'',
-            units:'руб / лит.',
+            name: '',
+            category: '',
+            description: '',
+            price: '',
+            units: 'руб / лит.',
+            selectedFile: null,
         }
     }
+
     handleBack = () => {
         window.history.back();
     };
 
     handleAdd = () => {
         const url = URL + 'api/merchant/add_product/'
+        console.log(this.state.selectedFile);
         axios.post(url, {
-            name:this.state.name,
-            price:this.state.price,
-            description:this.state.description,
-            img:'',
-            units:this.state.units,
+            name: this.state.name,
+            price: this.state.price,
+            description: this.state.description,
+            img: this.state.selectedFile,
+            units: this.state.units,
         }, MakeConfig(token.get()))
-        .then(resp=>this.handleBack())
-        .catch(err=>console.log(err));
+            .then(resp => this.handleBack())
+            .catch(err => console.log(err));
     };
+
+    fileChangedHandler = (event) => {
+        const fileImage = event.target.files[0];
+        let reader = new FileReader();
+        let base64String;
+
+        reader.onload = (function (theFile) {
+            return function (e) {
+                let binaryData = e.target.result;
+                base64String = window.btoa(binaryData);
+                // document.getElementById('base64').value = base64String;
+            };
+        })(fileImage);
+        reader.readAsBinaryString(fileImage);
+
+        this.setState({
+            selectedFile: base64String
+        })
+    }
 
     render() {
         return (
@@ -53,13 +75,13 @@ export default class MyProductsAddPage extends Component {
                         type="text"
                         className="my-products-add-page__input"
                         value={this.state.name}
-                        onChange={(ev) =>this.setState({name: ev.target.value})}
+                        onChange={(ev) => this.setState({name: ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">Категория</h2>
                     <select
                         className="my-products-add-page__input"
                         value={this.state.category}
-                        onChange={(ev) => this.setState({category:ev.target.value})}>
+                        onChange={(ev) => this.setState({category: ev.target.value})}>
                         <option>Мясо</option>
                         <option>Рыба</option>
                         <option>Курица</option>
@@ -86,7 +108,7 @@ export default class MyProductsAddPage extends Component {
                         type="text"
                         className="my-products-add-page__input"
                         value={this.state.description}
-                        onChange={(ev) =>this.setState({description: ev.target.value})}
+                        onChange={(ev) => this.setState({description: ev.target.value})}
                     />
                     <h2 className="my-products-add-page__title">
                         Добавить фото
@@ -95,10 +117,9 @@ export default class MyProductsAddPage extends Component {
                         {imgs.map((item, index) => (
                             <img src={item} key={index} alt=""></img>
                         ))}
-                        <Link className="buy-block__button_active" to="/image-picker">
-                            <button>+</button>
-                        </Link>
                     </div>
+                    <input className="my-products-add-page__choothe" type="file" accept="image/*;capture=camera"
+                           onChange={this.fileChangedHandler}/>
                     <h2 className="my-products-add-page__title">
                         Назначить цену
                     </h2>
@@ -108,12 +129,12 @@ export default class MyProductsAddPage extends Component {
                             type="text"
                             className="my-products-add-page__input"
                             value={this.state.price}
-                            onChange={(ev) => this.setState({price:ev.target.value})}
+                            onChange={(ev) => this.setState({price: ev.target.value})}
                         />
-                        <select 
+                        <select
                             className="my-products-add-page__input"
                             value={this.state.units}
-                            onChange={(ev) => this.setState({units:ev.target.value})}
+                            onChange={(ev) => this.setState({units: ev.target.value})}
                         >
                             <option>руб / лит.</option>
                             <option>руб / кг.</option>

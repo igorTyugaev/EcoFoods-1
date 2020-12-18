@@ -34,8 +34,6 @@ export default class ImagePicker extends Component {
     uploadHandler = () => {
         const formData = new FormData()
         formData.append(
-            'myFile',
-            this.state.selectedFile,
             this.state.selectedFile.name
         )
 
@@ -51,7 +49,7 @@ export default class ImagePicker extends Component {
             <>
                 <Header button={this.handleBack} title="ImagePicker"></Header>
 
-                <input type="file" accept="image/*;capture=camera" onChange={this.fileChangedHandler}/>
+
                 <p>" "</p>
                 <p>" "</p>
                 <button id='img-picker' className="my-products-add-page__add-button" onClick={this.uploadHandler}>
