@@ -53,7 +53,6 @@ export default class OrdersList extends Component {
     componentDidMount() {
         const url = URL + 'api/get_orders/';
         const config = MakeConfig(token.get());
-        console.log('config: ', config);
         axios.get(url, config)
             .then(resp => {
                 console.log('Data from:', url);

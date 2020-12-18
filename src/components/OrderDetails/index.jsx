@@ -81,6 +81,8 @@ class OrderDetails extends Component {
                             (order.date || 'Неизвестно'),
                             (order.products[0].product.merchant.first_name || 'Имя') + ' ' + (order.products[0].product.merchant.last_name || 'Фамилия'),
                             (order.products[0].product.merchant.address || 'Уточняется у продавца'),
+                            ('Самовывоз'),
+                            ('Наличные'),
                         ]}
                         title="Детали доставки"
                     ></TableBlock>
