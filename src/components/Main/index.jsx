@@ -111,7 +111,7 @@ export default class Main extends Component {
                             render={() => <OrdersPage></OrdersPage>}
                         />
                         <Route
-                            path="/personalArea/settings/location"
+                            path="/personalArea/settings"
                             render={() => (
                                 <SettingsPage type="location"></SettingsPage>
                             )}
