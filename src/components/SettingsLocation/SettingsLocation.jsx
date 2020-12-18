@@ -37,10 +37,10 @@ class SettingsLocation extends Component {
                 <input onChange={this.handleChange} name="address" value={address} type="text" />             
                 <h2 className="h2">Телефон</h2>
                 <input onChange={this.handleChange} name="phone" value={phone} type="text" />
-                <Link to='/personalArea'><button onClick={() => this.props.setUserInfo({
+                <Link to='/personalArea'><button className="my-products-add-page__add-button" onClick={() => this.props.setUserInfo({
                     address: address,
                     phone_number: phone,
-                })}>Изменить</button></Link>
+                })}>Сохранить</button></Link>
             </main>
         );
     }

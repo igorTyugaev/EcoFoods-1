@@ -10,8 +10,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
     height: 100vh;
     width: 100vw;
+}
+
+.preloader__text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 40px;
+    color: #223263;
+    padding-top: 10px;
+    letter-spacing: -0.02em;
+    margin: 0 auto;
 }
 
 .preloader img {

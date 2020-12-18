@@ -17,7 +17,7 @@ class Profile extends Component {
             <div className="profile__wrapper">
                 <div className="profile">
                     <div className="profile__avatar">
-                        <Avatar></Avatar>
+                        <Avatar name={first_name.slice(0, 1) + last_name.slice(0,1)}></Avatar>
                     </div>
                     <div className="profile__desc">
                         <b>{`${first_name} ${last_name}`}</b>
