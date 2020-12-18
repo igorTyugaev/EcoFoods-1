@@ -63,6 +63,7 @@ class CartPage extends Component {
                 Number(currentValue.data.price) * Number(currentValue.quantity)
             );
         }, 0);
+        console.log(productList);
         return (
             <>
                 {isBought && <Redirect push to="/cart/delivery"/>}
@@ -71,7 +72,7 @@ class CartPage extends Component {
                     <MyProductItem
                         key={item.uuid}
                         id={item.uuid}
-                        img={img}
+                        img={item.data.images.length > 0 ? 'data:image/png;base64,' + item.data.images[0].image.image : img}
                         title={item.data.name}
                         text={item.data.merchant.first_name + ' ' + item.data.merchant.last_name || 'Продавец не указан'}
                         handleDelete={this.handleDelete}

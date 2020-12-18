@@ -7,6 +7,7 @@ import img from '../Advertising/img/1.jpg';
 export default class AdsList extends Component {
     render() {
         const {announcements, title} = this.props;
+        console.log(announcements);
         return (
             <section className="announcement-list__wrapper">
                 <Title h2={title}></Title>
@@ -15,7 +16,7 @@ export default class AdsList extends Component {
                         <AdsBlock
                             key={item.id}
                             productId={item.uuid}
-                            img={'data:image/jpeg;base64,' + item.images[0].image.image || img}
+                            img={item.images.length > 0 && item.images[0].image.image ? 'data:image/jpeg;base64,' + item.images[0].image.image : img}
                             place={item.merchant.address}
                             units={item.units}
                             price={item.price}

@@ -51,7 +51,7 @@ export default class MyProductsList extends Component {
                 {myProducts.map((item) => (
                     <MyProductItem
                         key={item.uuid}
-                        img={'data:image/png;base64' + item.images[0].image.image || img}
+                        img={item.images.length > 0 ? 'data:image/png;base64,' + item.images[0].image.image : img}
                         title={item.name}
                         text={item.description}
                         price={item.price}

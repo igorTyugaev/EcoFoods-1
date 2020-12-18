@@ -6,6 +6,7 @@ import img from '../ProductPage/img/1.jpg'
 export default class Products extends Component {
     render() {
         const { products } = this.props;
+        console.log(products);
         return (
             <section className="products">
                 <h2 className="products__title">Продукты</h2>
@@ -15,7 +16,7 @@ export default class Products extends Component {
                             key={item.product.uuid}
                             quantity={item.quantity}
                             price={item.product.price}
-                            img={item.img || img}
+                            img={item.product.images || img}
                             location={item.product.merchant.address}
                             title={item.product.name}
                         ></ProductItem>
