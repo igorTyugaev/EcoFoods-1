@@ -137,7 +137,10 @@ class ProductPage extends Component {
                     title={data.name}
                 ></Header>
                 <Advertising
-                    advertisings={defaultData.advertisings}
+                    advertisings={data.images.map(i => ({
+                        img: 'data:image/jpeg;base64,' + i.image.image || img1,
+                        id: i.image.uuid
+                    }))}
                 ></Advertising>
                 <div className="product__cost-row">
                     <div className="product__cost">
@@ -160,7 +163,7 @@ class ProductPage extends Component {
                 <SettingsItem
                     img={userImg}
                     title="Продавец"
-                    text={data.merchant ? (data.merchant.first_name + ' ' + data.merchant.last_name)  : ' '}
+                    text={data.merchant ? (data.merchant.first_name + ' ' + data.merchant.last_name) : ' '}
                 ></SettingsItem>
                 <a href={data.merchant.phone_number || ''}>
                     <SettingsItem
