@@ -44,21 +44,23 @@ export default class MyProductsAddPage extends Component {
 
     fileChangedHandler = (event) => {
         const fileImage = event.target.files[0];
-        let reader = new FileReader();
-        let base64String;
-
-        reader.onload = (function (theFile) {
-            return function (e) {
-                let binaryData = e.target.result;
-                base64String = window.btoa(binaryData);
-                // document.getElementById('base64').value = base64String;
-            };
-        })(fileImage);
-        reader.readAsBinaryString(fileImage);
-
-        this.setState({
-            selectedFile: base64String
-        })
+        
+        const promise = new Promise((resolve, reject) => {
+            let reader = new FileReader();
+            reader.onload = (function (theFile) {
+                return function (e) {
+                    let binaryData = e.target.result;
+                    let base64String = window.btoa(binaryData);
+                    resolve(base64String);
+                };
+            })(fileImage);
+            reader.readAsBinaryString(fileImage);
+        });
+        
+        promise.then((val) => this.setState({
+            selectedFile: val
+        }));
+        
     }
 
     render() {
