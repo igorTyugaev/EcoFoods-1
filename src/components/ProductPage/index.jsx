@@ -160,7 +160,7 @@ class ProductPage extends Component {
                 <SettingsItem
                     img={userImg}
                     title="Продавец"
-                    text="@farmer_galaxy"
+                    text={data.merchant ? (data.merchant.first_name + ' ' + data.merchant.last_name)  : ' '}
                 ></SettingsItem>
                 <a href={data.merchant.phone_number || ''}>
                     <SettingsItem

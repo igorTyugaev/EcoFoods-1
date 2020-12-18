@@ -12,7 +12,7 @@ const orders = [
     {
         id: 'LQNSU346JK',
         date: '08 October, 2020',
-        orderAt: '@farmer_galaxy',
+        orderAt: 'farmer_galaxy',
         status: 'Shipping',
         deliveryDate: '12 oct. 2020',
         location: 'Yekaterinburg, Mira, 19',
@@ -22,7 +22,7 @@ const orders = [
     {
         id: 'LQNSU345JK',
         date: '08 October, 2020',
-        orderAt: '@farmer_galaxy',
+        orderAt: 'farmer_galaxy',
         status: 'Shipping',
         deliveryDate: '12 oct. 2020',
         location: 'Yekaterinburg, Mira, 19',
@@ -32,7 +32,7 @@ const orders = [
     {
         id: 'LYNSU345JK',
         date: '08 October, 2020',
-        orderAt: '@farmer_galaxy',
+        orderAt: 'farmer_galaxy',
         status: 'Shipping',
         deliveryDate: '12 oct. 2020',
         location: 'Yekaterinburg, Mira, 19',
